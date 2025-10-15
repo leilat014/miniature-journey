@@ -1,9 +1,8 @@
 :root {
-    --color-header: #006699;
-    --color-header-background: #f1b469;
-    --color-main: var(--color-text);
-    --color-accent: #8B0000;
-    --color-text: #2a3b4b;
-    --color-background: url('sky.jpeg');
-
+  --color-header: #006699;
+  --color-header-background: #f1b469;
+  --color-main: var(--color-text);
+  --color-accent: #8b0000;
+  --color-text: #2a3b4b;
+  --color-background: url("sky.jpeg");
 }
