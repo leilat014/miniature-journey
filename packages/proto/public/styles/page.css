@@ -1,0 +1,50 @@
+header {
+  /* color: #dcd5dc; */
+  background-color: var(--color-header-background);
+  /* border-radius: 10%; */
+  /* border-bottom-left-radius: 10%; */
+  /* border: 2px solid #8B0000; */
+}
+
+h1 {
+  color: var(--color-header);
+}
+
+body {
+  /* background-image: url('sky.jpeg');
+  background-size: auto 100vh;
+  background-attachment: fixed;
+  background-repeat: repeat-x;
+  background-position: center top; */
+  background-image: var(--color-background);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  /* background-color: #FFFAFA; */
+}
+
+h2 {
+  color: var(--color-main);
+}
+
+p {
+  color: var(--color-text);
+}
+
+.itinerary,
+.preparations,
+.budget {
+  width: 300px;
+  border: 2px solid var(--color-accent);
+}
+
+/* color combos: */
+/* #495057
+#8B0000
+#006699 */
+/* atomic steel blue #1a385a */
+/* seagull blue #769abe
+tomato orange #e46f44
+pink shell #e8aa9b
+plum violet #dcd5dc */
