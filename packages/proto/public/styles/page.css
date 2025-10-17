@@ -28,7 +28,8 @@ body {
   line-height: 1.6;
 }
 
-h2 {
+h2,
+h3 {
   color: var(--color-main);
 }
 
