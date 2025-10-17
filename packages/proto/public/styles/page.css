@@ -59,6 +59,14 @@ table {
   font-style: normal;
   font-weight: 500;
 }
+
+svg.icon {
+  display: inline;
+  height: 2em;
+  width: 2em;
+  vertical-align: top;
+  fill: currentColor;
+}
 /* color combos: */
 /* #495057
 #8B0000
