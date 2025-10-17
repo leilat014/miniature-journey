@@ -11,80 +11,84 @@
       href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
-
     <title>Euro Trip</title>
   </head>
-  <body>
+  <body class="page">
+    <header>
+      <h1>
+        <svg class="icon">
+          <use href="/icons/plane.svg#icon-plane" />
+        </svg>
+        Traveling with friends
+      </h1>
+      <h2>
+        <a href="index.html">Home</a>
+      </h2>
+
+      <h3>
+        <svg class="icon">
+          <use href="/icons/tag.svg#icon-tag"></use>
+        </svg>
+        by Leila Touati
+      </h3>
+    </header>
     <article>
-      <header>
-        <h1>
-          <svg class="icon">
-            <use href="/icons/plane.svg#icon-plane"/>
-          </svg>
-          Europe Trip 
-        </h1>
-        <h3>Home</h3>
+      <div class="content">
+        <section class="itinerary">
+          <h2>
+            <svg class="icon">
+              <use href="/icons/itinerary.svg#icon-map" />
+            </svg>
+            Itinerary
+          </h2>
+          <ul>
+            <li>
+              <a href="transportation.html">Transportation &rarr;</a>
+            </li>
+            <li>
+              <a href="restaurants.html">Restaurants &rarr;</a>
+            </li>
+            <li>
+              <a href="sightseeing.html">Sightseeing &rarr;</a>
+            </li>
+            <li>
+              <a href="activities.html">Activities &rarr;</a>
+            </li>
+          </ul>
+        </section>
+        <section class="preparations">
+          <h2>
+            <svg class="icon">
+              <use href="/icons/preparations.svg#icon-suitcase" />
+            </svg>
+            Preparations
+          </h2>
+          <ul>
+            <li>
+              <a href="packing.html">Packing list &rarr;</a>
+            </li>
+            <li>
+              <a href="https://www.united.com">Book flights &rarr;</a>
+            </li>
+          </ul>
+        </section>
+        <section class="budget">
+          <h2>
+            <svg class="icon">
+              <use href="/icons/budget.svg#icon-money" />
+            </svg>
+            Budget
+          </h2>
+          <ul>
+            <li>
+              <a href="budget.html">Spreadsheet &rarr;</a>
+            </li>
+          </ul>
+        </section>
+      </div>
 
-        <h2>
-          <svg class="icon">
-            <use href="/icons/tag.svg#icon-tag">
-            </use>
-          </svg>
-          by Leila Touati
-        </h2>
-
-      </header>
-
-      <section class="itinerary">
-        <h2>
-          <svg class="icon">
-            <use href="/icons/itinerary.svg#icon-map" />
-          </svg>
-          Itinerary
-        </h2>
-        <ul>
-          <li>
-            <a href="transportation.html">Transportation &rarr;</a>
-          </li>
-          <li>
-            <a href="restaurants.html">Restaurants &rarr;</a>
-          </li>
-          <li>
-            <a href="sightseeing.html">Sightseeing &rarr;</a>
-          </li>
-          <li>
-            <a href="activities.html">Activities &rarr;</a>
-          </li>
-        </ul>
-      </section>
-      <section class="preparations">
-        <h2>
-          <svg class="icon">
-            <use href="/icons/preparations.svg#icon-suitcase" />
-          </svg>
-          Preparations
-        </h2>
-        <ul>
-          <li>
-            <a href="packing.html">Packing list &rarr;</a>
-          </li>
-          <li>
-            <a href="https://www.united.com">Book flights &rarr;</a>
-          </li>
-        </ul>
-      </section>
-      <section class="budget">
-        <h2>
-          <svg class="icon">
-            <use href="/icons/budget.svg#icon-money" />
-          </svg>
-          Budget
-        </h2>
-        <ul>
-          <li>
-            <a href="budget.html">Spreadsheet &rarr;</a>
-          </li>
-        </ul>
+      <section class="france-pic">
+        <img src="france.jpeg" alt="France" />
       </section>
     </article>
   </body>
