@@ -15,22 +15,25 @@ header {
 }
 
 article {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2em;
-  align-items: flex-start;
+  padding: 2em;
+  /* align-items: flex-start; */
 }
 
 .content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  /* flex: 1; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* flex-direction: column; */
   gap: 2em;
 }
 
 .page {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   width: 100%;
 }
 .page > header {
@@ -43,6 +46,12 @@ article {
   padding: 0.5rem;
 }
 
+.nav {
+  font-family: "Fjalla One", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.6;
+}
 
 h1 {
   color: var(--color-header);
@@ -80,9 +89,12 @@ p {
 .itinerary,
 .preparations,
 .budget {
+  order: 0;
   width: 300px;
   border: 2px solid var(--color-accent);
+  padding: 1.5em;
 }
+
 
 h1,
 h2,
@@ -110,16 +122,19 @@ svg.icon {
 }
 
 .france-pic {
-  flex: 0 0 auto;
-  height:400px;
-  width:400px;
-  order: -1;
+  grid-column: 1/-1;
+  /* grid-row: 1; */
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  order: 1;
 }
 
 .france-pic img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  padding: 2em;
   /* border: 2px solid var(--color-accent); */
 }
 /* color combos: */
