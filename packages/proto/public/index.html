@@ -31,6 +31,11 @@
         </svg>
         by Leila Touati
       </h3>
+
+      <label>
+        <input type="checkbox" autocomplete="off" />
+        Dark mode
+      </label>
     </header>
     <article>
       <section class="france-pic">
@@ -88,7 +93,18 @@
           </li>
         </ul>
       </section>
+
       <!-- </div> -->
     </article>
+
+    <script>
+      document.body.addEventListener("change", function (event) {
+        if (event.target.checked) {
+          event.currentTarget.classList.add("dark-mode");
+        } else {
+          event.currentTarget.classList.remove("dark-mode");
+        }
+      });
+    </script>
   </body>
 </html>
