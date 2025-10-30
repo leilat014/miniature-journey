@@ -46,8 +46,47 @@
       <section class="france-pic">
         <img src="france.jpeg" alt="France" />
       </section>
-      <!-- <div class="content"> -->
-      <section class="itinerary">
+
+      <!-- mocking an instance of custom element!-->
+      <trip-section
+        icon-href="/icons/itinerary.svg#icon-map"
+        section-class="itinerary"
+      >
+        <span slot="title"> Itinerary</span>
+        <ul slot="links">
+          <li><a href="transportation.html">Transportation &rarr;</a></li>
+          <li><a href="restaurants.html">Restaurants &rarr;</a></li>
+          <li><a href="sightseeing.html">Sightseeing &rarr;</a></li>
+          <li><a href="activities.html">Activities &rarr;</a></li>
+        </ul>
+      </trip-section>
+
+      <trip-section
+        icon-href="/icons/preparations.svg#icon-suitcase"
+        section-class="preparations"
+      >
+        <span slot="title"> Preparations</span>
+        <span slot="links">
+          <ul slot="links">
+            <li><a href="packing.html">Packing list &rarr;</a></li>
+            <li><a href="https://www.united.com">Book flights &rarr;</a></li>
+          </ul>
+        </span>
+      </trip-section>
+
+      <trip-section
+        icon-href="/icons/budget.svg#icon-money"
+        section-class="budget"
+      >
+        <span slot="title"> Budget</span>
+        <span slot="links">
+          <ul slot="links">
+            <li><a href="budget.html">Spreadsheet &rarr;</a></li>
+          </ul>
+        </span>
+      </trip-section>
+
+      <!-- <section class="itinerary">
         <h2>
           <svg class="icon">
             <use href="/icons/itinerary.svg#icon-map" />
@@ -68,7 +107,7 @@
             <a href="activities.html">Activities &rarr;</a>
           </li>
         </ul>
-      </section>
+      </section> -->
       <section class="preparations">
         <h2>
           <svg class="icon">
@@ -98,8 +137,6 @@
           </li>
         </ul>
       </section>
-
-      <!-- </div> -->
     </article>
 
     <script>
