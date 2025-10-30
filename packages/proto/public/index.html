@@ -32,8 +32,13 @@
         by Leila Touati
       </h3>
 
-      <label>
-        <input type="checkbox" autocomplete="off" />
+      <label
+        onchange="
+        event.stopPropagation();
+        toggleDarkMode(event.target, event.target.checked);
+        "
+      >
+        <input type="checkbox" />
         Dark mode
       </label>
     </header>
@@ -98,13 +103,19 @@
     </article>
 
     <script>
-      document.body.addEventListener("change", function (event) {
-        if (event.target.checked) {
-          event.currentTarget.classList.add("dark-mode");
-        } else {
-          event.currentTarget.classList.remove("dark-mode");
-        }
+      document.body.addEventListener("dark-mode:toggle", (event) => {
+        const page = event.currentTarget;
+        const checked = event.detail.checked;
+        page.classList.toggle("dark-mode", checked);
       });
+
+      function toggleDarkMode(target, checked) {
+        const customEvent = new CustomEvent("dark-mode:toggle", {
+          bubbles: true,
+          detail: { checked },
+        });
+        target.dispatchEvent(customEvent);
+      }
     </script>
   </body>
 </html>

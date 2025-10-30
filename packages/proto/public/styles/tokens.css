@@ -4,7 +4,13 @@
   --color-main: var(--color-text);
   --color-accent: #8b0000;
   --color-text: #2a3b4b;
-  --color-background: url("sky.jpeg");
+  --color-background: #4076a9;
+}
+
+body {
+  background: var(--color-background);
+  background-image: url("sky.jpeg");
+  color: var(--color-text);
 }
 
 body.dark-mode {
@@ -12,8 +18,9 @@ body.dark-mode {
   --color-header-background: #000000;
   --color-main: var(--color-text);
   --color-accent: #8b0000;
-  --color-text: #48596a;
+  --color-text: #607182;
   --color-background: #12283e;
+  background-image: none;
 
   /* --color-background-page: rgb(3, 69, 2);
   --color-text: rgb(240, 240, 223);
