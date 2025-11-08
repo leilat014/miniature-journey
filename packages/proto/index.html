@@ -11,15 +11,6 @@
       href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
-
-    <script type="module">
-      import { define } from "@calpoly/mustang";
-      import { tripSectionElement } from "/src/tripSection.js";
-
-      define({
-        "trip-section": tripSectionElement
-      });
-    </script>
     <title>Euro Trip</title>
   </head>
   <body class="page">
@@ -94,61 +85,17 @@
           </ul>
         </span>
       </trip-section>
-      <!-- 
-      <section class="itinerary">
-        <h2>
-          <svg class="icon">
-            <use href="/icons/itinerary.svg#icon-map" />
-          </svg>
-          Itinerary
-        </h2>
-        <ul>
-          <li>
-            <a href="transportation.html">Transportation &rarr;</a>
-          </li>
-          <li>
-            <a href="restaurants.html">Restaurants &rarr;</a>
-          </li>
-          <li>
-            <a href="sightseeing.html">Sightseeing &rarr;</a>
-          </li>
-          <li>
-            <a href="activities.html">Activities &rarr;</a>
-          </li>
-        </ul>
-      </section>
-      <section class="preparations">
-        <h2>
-          <svg class="icon">
-            <use href="/icons/preparations.svg#icon-suitcase" />
-          </svg>
-          Preparations
-        </h2>
-        <ul>
-          <li>
-            <a href="packing.html">Packing list &rarr;</a>
-          </li>
-          <li>
-            <a href="https://www.united.com">Book flights &rarr;</a>
-          </li>
-        </ul>
-      </section>
-      <section class="budget">
-        <h2>
-          <svg class="icon">
-            <use href="/icons/budget.svg#icon-money" />
-          </svg>
-          Budget
-        </h2>
-        <ul>
-          <li>
-            <a href="budget.html">Spreadsheet &rarr;</a>
-          </li>
-        </ul>
-      </section> -->
     </article>
 
-    <script>
+    <script type="module">
+      import { define } from "@calpoly/mustang";
+      import { tripSectionElement } from "./src/tripSection.ts";
+
+      define({
+        "trip-section": tripSectionElement,
+      });
+
+      // dark mode button
       document.body.addEventListener("dark-mode:toggle", (event) => {
         const page = event.currentTarget;
         const checked = event.detail.checked;
@@ -162,6 +109,8 @@
         });
         target.dispatchEvent(customEvent);
       }
+
+      window.toggleDarkMode = toggleDarkMode;
     </script>
   </body>
 </html>

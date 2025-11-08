@@ -1,0 +1,148 @@
+header {
+  /* color: #dcd5dc; */
+  background-color: var(--color-header-background);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  /* width: 100%;
+  grid-column */
+  /* border-radius: 10%; */
+  /* border-bottom-left-radius: 10%; */
+  /* border: 2px solid #8B0000; */
+}
+
+article {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+  padding: 2em;
+  /* align-items: flex-start; */
+}
+
+.content {
+  /* flex: 1; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* flex-direction: column; */
+  gap: 2em;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+.page > header {
+  flex-basis: min-content;
+}
+.page > section {
+  flex-basis: 100%;
+  overflow: auto;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.nav {
+  font-family: "Fjalla One", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.6;
+}
+
+h1 {
+  color: var(--color-header);
+}
+
+body {
+  /* background-image: url('sky.jpeg');
+  background-size: auto 100vh;
+  background-attachment: fixed;
+  background-repeat: repeat-x;
+  background-position: center top; */
+  background-image: var(--color-background);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  /* background-color: #FFFAFA; */
+  font-family: "Libre Baskerville", serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h2,
+h3 {
+  color: var(--color-main);
+  padding: 1em;
+}
+
+p {
+  /* font-family: Rubik; */
+  color: var(--color-text);
+}
+
+.itinerary,
+.preparations,
+.budget {
+  order: 0;
+  width: 300px;
+  border: 2px solid var(--color-accent);
+  padding: 1.5em;
+}
+
+
+h1,
+h2,
+h3 {
+  font-family: "Fjalla One", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+a,
+ul,
+table {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  padding-bottom: 2em;
+}
+
+svg.icon {
+  display: inline;
+  height: 2em;
+  width: 2em;
+  vertical-align: top;
+  fill: currentColor;
+}
+
+.france-pic {
+  grid-column: 1/-1;
+  /* grid-row: 1; */
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  order: 1;
+}
+
+.france-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 2em;
+  /* border: 2px solid var(--color-accent); */
+}
+/* color combos: */
+/* #495057
+#8B0000
+#006699 */
+/* atomic steel blue #1a385a */
+/* seagull blue #769abe
+tomato orange #e46f44
+pink shell #e8aa9b
+plum violet #dcd5dc */
