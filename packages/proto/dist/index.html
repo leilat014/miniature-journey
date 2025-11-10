@@ -11,9 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
-
     <title>Euro Trip</title>
-    <script type="module" crossorigin src="/assets/index-l2HhE7AQ.js"></script>
+    <script type="module" crossorigin src="/assets/index-CoA1I9gn.js"></script>
   </head>
   <body class="page">
     <header>
@@ -50,11 +49,11 @@
       </section>
 
       <!-- mocking an instance of custom element!-->
-      <trip-section
-        icon-href="/icons/itinerary.svg#icon-map"
-        section-class="itinerary"
-      >
-        <span slot="title"> Itinerary</span>
+      <trip-section section-class="itinerary">
+        <svg class="icon" slot="icon">
+          <use href="/icons/itinerary.svg#icon-map" />
+        </svg>
+        <span slot="title" class="section-title"> Itinerary</span>
         <ul slot="links">
           <li><a href="transportation.html">Transportation &rarr;</a></li>
           <li><a href="restaurants.html">Restaurants &rarr;</a></li>
@@ -63,11 +62,11 @@
         </ul>
       </trip-section>
 
-      <trip-section
-        icon-href="/icons/preparations.svg#icon-suitcase"
-        section-class="preparations"
-      >
-        <span slot="title"> Preparations</span>
+      <trip-section section-class="preparations">
+        <svg class="icon" slot="icon">
+          <use href="/icons/preparations.svg#icon-suitcase" />
+        </svg>
+        <span slot="title" class="section-title"> Preparations</span>
         <span slot="links">
           <ul slot="links">
             <li><a href="packing.html">Packing list &rarr;</a></li>
@@ -76,85 +75,18 @@
         </span>
       </trip-section>
 
-      <trip-section
-        icon-href="/icons/budget.svg#icon-money"
-        section-class="budget"
-      >
-        <span slot="title"> Budget</span>
+      <trip-section section-class="budget">
+        <svg class="icon" slot="icon">
+          <use href="/icons/budget.svg#icon-money"/>
+        </svg>
+        <span slot="title" class="section-title"> Budget</span>
         <span slot="links">
           <ul slot="links">
             <li><a href="budget.html">Spreadsheet &rarr;</a></li>
           </ul>
         </span>
       </trip-section>
-      <!-- 
-      <section class="itinerary">
-        <h2>
-          <svg class="icon">
-            <use href="/icons/itinerary.svg#icon-map" />
-          </svg>
-          Itinerary
-        </h2>
-        <ul>
-          <li>
-            <a href="transportation.html">Transportation &rarr;</a>
-          </li>
-          <li>
-            <a href="restaurants.html">Restaurants &rarr;</a>
-          </li>
-          <li>
-            <a href="sightseeing.html">Sightseeing &rarr;</a>
-          </li>
-          <li>
-            <a href="activities.html">Activities &rarr;</a>
-          </li>
-        </ul>
-      </section>
-      <section class="preparations">
-        <h2>
-          <svg class="icon">
-            <use href="/icons/preparations.svg#icon-suitcase" />
-          </svg>
-          Preparations
-        </h2>
-        <ul>
-          <li>
-            <a href="packing.html">Packing list &rarr;</a>
-          </li>
-          <li>
-            <a href="https://www.united.com">Book flights &rarr;</a>
-          </li>
-        </ul>
-      </section>
-      <section class="budget">
-        <h2>
-          <svg class="icon">
-            <use href="/icons/budget.svg#icon-money" />
-          </svg>
-          Budget
-        </h2>
-        <ul>
-          <li>
-            <a href="budget.html">Spreadsheet &rarr;</a>
-          </li>
-        </ul>
-      </section> -->
     </article>
 
-    <script>
-      document.body.addEventListener("dark-mode:toggle", (event) => {
-        const page = event.currentTarget;
-        const checked = event.detail.checked;
-        page.classList.toggle("dark-mode", checked);
-      });
-
-      function toggleDarkMode(target, checked) {
-        const customEvent = new CustomEvent("dark-mode:toggle", {
-          bubbles: true,
-          detail: { checked },
-        });
-        target.dispatchEvent(customEvent);
-      }
-    </script>
   </body>
 </html>

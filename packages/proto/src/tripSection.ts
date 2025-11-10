@@ -1,5 +1,7 @@
 import { html, css, LitElement } from "lit";
 import { property } from "lit/decorators.js";
+// import { unsafeSVG } from "lit/directives/unsafe-svg.js";
+import reset from "./styles/reset.css.ts";
 
 export class tripSectionElement extends LitElement {
   @property()
@@ -11,16 +13,14 @@ export class tripSectionElement extends LitElement {
   override render() {
     return html`<section class="${this["section-class"]}">
       <h2>
-        <svg class="icon">
-          <use href="${this["icon-href"]}" />
-        </svg>
+        <slot name="icon"></slot>
         <slot name="title"></slot>
       </h2>
       <slot name="links"></slot>
     </section> `;
   }
 
-  static styles = css`
+  static styles = [reset.styles, css`
     svg.icon {
       display: inline;
       height: 2em;
@@ -42,6 +42,9 @@ export class tripSectionElement extends LitElement {
       font-family: "Fjalla One", sans-serif;
       font-style: normal;
       font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
     }
 
     ul {
@@ -56,5 +59,19 @@ export class tripSectionElement extends LitElement {
       font-style: normal;
       font-weight: 500;
     }
-  `;
+
+    ::slotted(span[slot="title"]) {
+      color: var(--color-main) !important;
+      font-family: "Fjalla One", sans-serif !important;
+      font-style: normal !important;
+      font-weight: 400 !important;
+    }
+
+    ::slotted(ul) {
+      font-family: "Rubik", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      padding-bottom: 2em;
+    }
+  `];
 }
