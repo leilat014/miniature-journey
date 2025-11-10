@@ -21,3 +21,65 @@ Available on:
   http://10.144.19.236:3000
 Hit CTRL-C to stop the server
 
+
+> proto@1.0.0 start
+> http-server dist -p 3000
+
+Starting up http-server, serving dist
+
+http-server version: 14.1.1
+
+http-server settings: 
+CORS: disabled
+Cache: 3600 seconds
+Connection Timeout: 120 seconds
+Directory Listings: visible
+AutoIndex: visible
+Serve GZIP Files: false
+Serve Brotli Files: false
+Default File Extension: none
+
+Available on:
+  http://127.0.0.1:3000
+  http://10.144.45.140:3000
+Hit CTRL-C to stop the server
+
+[2025-11-10T20:30:31.862Z]  "GET /" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T20:30:31.941Z]  "GET /styles/reset.css" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T20:30:31.945Z]  "GET /styles/tokens.css" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T20:30:31.971Z]  "GET /assets/index-CoA1I9gn.js" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T20:50:45.639Z]  "GET /styles/page.css" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T20:50:45.661Z]  "GET /styles/sky.jpeg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T20:50:45.665Z]  "GET /icons/preparations.svg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T20:50:45.668Z]  "GET /icons/plane.svg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T20:50:45.671Z]  "GET /icons/budget.svg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T20:50:45.674Z]  "GET /icons/itinerary.svg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T20:50:45.678Z]  "GET /icons/tag.svg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T20:50:45.697Z]  "GET /france.jpeg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.431Z]  "GET /" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.450Z]  "GET /" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.471Z]  "GET /styles/reset.css" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.473Z]  "GET /styles/page.css" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.476Z]  "GET /styles/tokens.css" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.487Z]  "GET /assets/index-CoA1I9gn.js" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.489Z]  "GET /assets/index-CoA1I9gn.js" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.521Z]  "GET /france.jpeg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.523Z]  "GET /icons/itinerary.svg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.525Z]  "GET /icons/plane.svg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.527Z]  "GET /icons/tag.svg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.530Z]  "GET /icons/preparations.svg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.533Z]  "GET /icons/budget.svg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.535Z]  "GET /styles/sky.jpeg" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.554Z]  "GET /favicon.ico" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:12:04.561Z]  "GET /favicon.ico" Error (404): "Not found"
+[2025-11-10T22:31:41.993Z]  "GET /" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:31:42.059Z]  "GET /assets/index-CoA1I9gn.js" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:39:21.007Z]  "GET /" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:39:21.091Z]  "GET /favicon.ico" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:39:21.093Z]  "GET /favicon.ico" Error (404): "Not found"
+[2025-11-10T22:44:35.276Z]  "GET /" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:44:35.341Z]  "GET /favicon.ico" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:44:35.341Z]  "GET /favicon.ico" Error (404): "Not found"
+[2025-11-10T22:47:30.130Z]  "GET /" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:47:31.507Z]  "GET /" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
+[2025-11-10T22:47:32.559Z]  "GET /" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:144.0) Gecko/20100101 Firefox/144.0"
