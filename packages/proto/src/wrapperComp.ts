@@ -1,4 +1,4 @@
-import { html, LitElement } from "lit";
+import { css, html, LitElement } from "lit";
 import { property, state } from "lit/decorators.js";
 
 export class tripSectionElement extends LitElement {
@@ -9,20 +9,23 @@ export class tripSectionElement extends LitElement {
   sections: Array<Section> = [];
 
   render() {
-    return html`${this.sections.map((section) => html`
-      <trip-section section-class="${section.sectionClass}">
-        <svg class="icon" slot="icon">
-          <use href="${section.icon}" />
-        </svg>
-        <span slot="title" class="section-title">${section.title}</span>
-        <ul slot="links">
-          ${section.links.map((link) => html`
-            <li><a href="${link.href}">${link.text} &rarr;</a></li>
-          `)}
-        </ul>
-      </trip-section>
-    `)}
-  `;
+    return html`${this.sections.map(
+      (section) => html`
+        <trip-section section-class="${section.sectionClass}">
+          <svg class="icon" slot="icon">
+            <use href="${section.icon}" />
+          </svg>
+          <span slot="title" class="section-title">${section.title}</span>
+          <ul slot="links">
+            ${section.links.map(
+              (link) => html`
+                <li><a href="${link.href}">${link.text} &rarr;</a></li>
+              `
+            )}
+          </ul>
+        </trip-section>
+      `
+    )} `;
   }
 
   connectedCallback() {
@@ -30,21 +33,29 @@ export class tripSectionElement extends LitElement {
     if (this.src) this.hydrate(this.src);
   }
 
-hydrate(src: string) {
-  fetch(src)
-    .then((res) => res.json())
-    .then((json: object) => {
-      if (json) {
-        const data = json as {
-          sections: Array<Section>
-        };
-        this.sections = data.sections;
-      }
-    })
-    .catch((error) => {
-      console.error("Error loading data:", error);
-    });
-}
+  hydrate(src: string) {
+    fetch(src)
+      .then((res) => res.json())
+      .then((json: object) => {
+        if (json) {
+          const data = json as {
+            sections: Array<Section>;
+          };
+          this.sections = data.sections;
+        }
+      })
+      .catch((error) => {
+        console.error("Error loading data:", error);
+      });
+  }
+  static styles = css`
+    :host {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2em;
+      padding: 2em;
+    }
+  `;
 }
 
 interface Section {
@@ -55,6 +66,6 @@ interface Section {
 }
 
 interface Link {
-    text: string;
-    href: string;
+  text: string;
+  href: string;
 }

@@ -49,44 +49,45 @@
       </section>
 
       <!-- custom element!-->
-
-      <trip-section section-class="itinerary">
-        <svg class="icon" slot="icon">
-          <use href="/icons/itinerary.svg#icon-map" />
-        </svg>
-        <span slot="title" class="section-title"> Itinerary</span>
-        <ul slot="links">
-          <li><a href="transportation.html">Transportation &rarr;</a></li>
-          <li><a href="restaurants.html">Restaurants &rarr;</a></li>
-          <li><a href="sightseeing.html">Sightseeing &rarr;</a></li>
-          <li><a href="activities.html">Activities &rarr;</a></li>
-        </ul>
-      </trip-section>
-
-      <trip-section section-class="preparations">
-        <svg class="icon" slot="icon">
-          <use href="/icons/preparations.svg#icon-suitcase" />
-        </svg>
-        <span slot="title" class="section-title"> Preparations</span>
-        <span slot="links">
+      <trip-element src="/proto/public/journey.json">
+        <trip-section section-class="itinerary">
+          <svg class="icon" slot="icon">
+            <use href="/icons/itinerary.svg#icon-map" />
+          </svg>
+          <span slot="title" class="section-title"> Itinerary</span>
           <ul slot="links">
-            <li><a href="packing.html">Packing list &rarr;</a></li>
-            <li><a href="https://www.united.com">Book flights &rarr;</a></li>
+            <li><a href="transportation.html">Transportation &rarr;</a></li>
+            <li><a href="restaurants.html">Restaurants &rarr;</a></li>
+            <li><a href="sightseeing.html">Sightseeing &rarr;</a></li>
+            <li><a href="activities.html">Activities &rarr;</a></li>
           </ul>
-        </span>
-      </trip-section>
+        </trip-section>
 
-      <trip-section section-class="budget">
-        <svg class="icon" slot="icon">
-          <use href="/icons/budget.svg#icon-money" />
-        </svg>
-        <span slot="title" class="section-title"> Budget</span>
-        <span slot="links">
-          <ul slot="links">
-            <li><a href="budget.html">Spreadsheet &rarr;</a></li>
-          </ul>
-        </span>
-      </trip-section>
+        <trip-section section-class="preparations">
+          <svg class="icon" slot="icon">
+            <use href="/icons/preparations.svg#icon-suitcase" />
+          </svg>
+          <span slot="title" class="section-title"> Preparations</span>
+          <span slot="links">
+            <ul slot="links">
+              <li><a href="packing.html">Packing list &rarr;</a></li>
+              <li><a href="https://www.united.com">Book flights &rarr;</a></li>
+            </ul>
+          </span>
+        </trip-section>
+
+        <trip-section section-class="budget">
+          <svg class="icon" slot="icon">
+            <use href="/icons/budget.svg#icon-money" />
+          </svg>
+          <span slot="title" class="section-title"> Budget</span>
+          <span slot="links">
+            <ul slot="links">
+              <li><a href="budget.html">Spreadsheet &rarr;</a></li>
+            </ul>
+          </span>
+        </trip-section>
+      </trip-element>
     </article>
 
   </body>
