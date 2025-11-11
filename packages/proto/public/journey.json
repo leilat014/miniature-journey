@@ -1,4 +1,42 @@
 {
-    "name": "Itinerary",
-    "icon": "/icons/itinerary.svg#icon-map"
+  "sections": [
+    {
+      "icon": "/icons/itinerary.svg#icon-map",
+      "sectionClass": "itinerary",
+      "title": "Itinerary",
+      "links": [
+        {
+          "text": "Transportation",
+          "href": "transportation.html"
+        },
+        {
+          "text": "Restaurants",
+          "href": "restaurants.html"
+        },
+        {
+          "text": "Sightseeing",
+          "href": "sightseeing.html"
+        },
+        {
+          "text": "Activities",
+          "href": "activities.html"
+        }
+      ]
+    },
+    {
+      "icon": "/icons/preparations.svg#icon-suitcase",
+      "sectionClass": "preparations",
+      "title": "Preparations",
+      "links": [
+        { "text": "Packing list", "href": "packing.html" },
+        { "text": "Book flights", "href": "https://www.united.com" }
+      ]
+    },
+    {
+      "icon": "/icons/budget.svg#icon-money",
+      "sectionClass": "budget",
+      "title": "Budget",
+      "links": [{ "text": "Spreadsheet", "href": "budget.html" }]
+    }
+  ]
 }
