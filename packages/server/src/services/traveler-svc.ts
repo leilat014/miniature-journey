@@ -29,4 +29,29 @@ function get(userid: String): Promise<Traveler> {
      });
 }
 
-export default { index, get};
+function create(json: Traveler): Promise<Traveler> {
+    const t = new TravelerModel(json);
+    return t.save();
+}
+
+function update(
+  userid: String,
+  traveler: Traveler
+): Promise<Traveler> {
+  return TravelerModel.findOneAndUpdate({ userid }, traveler, {
+    new: true
+  }).then((updated) => {
+    if (!updated) throw `${userid} not updated`;
+    else return updated as Traveler;
+  });
+}
+
+function remove(userid: String): Promise<void> {
+  return TravelerModel.findOneAndDelete({ userid }).then(
+    (deleted) => {
+      if (!deleted) throw `${userid} not deleted`;
+    }
+  );
+}
+
+export default { index, get, create, update, remove};

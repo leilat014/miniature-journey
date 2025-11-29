@@ -44,4 +44,23 @@ function get(userid) {
     throw `${userid} Not Found`;
   });
 }
-var traveler_svc_default = { index, get };
+function create(json) {
+  const t = new TravelerModel(json);
+  return t.save();
+}
+function update(userid, traveler) {
+  return TravelerModel.findOneAndUpdate({ userid }, traveler, {
+    new: true
+  }).then((updated) => {
+    if (!updated) throw `${userid} not updated`;
+    else return updated;
+  });
+}
+function remove(userid) {
+  return TravelerModel.findOneAndDelete({ userid }).then(
+    (deleted) => {
+      if (!deleted) throw `${userid} not deleted`;
+    }
+  );
+}
+var traveler_svc_default = { index, get, create, update, remove };
