@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import { connect } from "./services/mongo";
 import Travelers from "./services/traveler-svc";
 import travelers from "./routes/travelers";
+import auth from "./routes/auth";
 
 connect("miniature-journey");
 
@@ -13,6 +14,8 @@ app.use(express.static(staticDir));
 app.use(express.json());
 
 app.use("/api/travelers", travelers);
+
+app.use("/auth", auth);
 
 app.get("/travelers/:userid", (req: Request, res: Response) => {
   const { userid } = req.params;
