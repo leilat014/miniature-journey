@@ -497,7 +497,7 @@ svg.icon {
 
 .traveler-card {
   background: var(--surface);
-  border: 2px solid var(--border);
+  border: 2px solid grey;
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: var(--shadow);
@@ -511,13 +511,15 @@ svg.icon {
 
 .traveler-card h3 {
   font-family: "Fjalla One", sans-serif;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.001rem;
+  margin-top: 0.001em;
 }
 
 .traveler-card p {
   font-family: "Rubik", sans-serif;
   color: var(--text);
 }
+
 
 
 /* color combos: */
