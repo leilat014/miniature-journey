@@ -1,24 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <link rel="stylesheet" href="styles/tokens.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
     <title>How to Get Around</title>
   </head>
-  <body>
+  <body class="page">
     <header>
-      <h1 class="nav">How to get around</h1>
+      <button class="hamburger-menu" aria-label="Menu">
+        <span class="hamburger-icon">☰</span>
+      </button>
+
+      <div class="dropdown-menu">
+        <div class="ticket">
+          <div class="ticket-header">✈️ Quick Links</div>
+          <a href="index.html" class="ticket-item">
+            <span class="ticket-icon">🏠</span>
+            <span>Home</span>
+          </a>
+          <a href="transportation.html" class="ticket-item">
+            <span class="ticket-icon">🚗</span>
+            <span>Transportation</span>
+          </a>
+          <a href="restaurants.html" class="ticket-item">
+            <span class="ticket-icon">🍽️</span>
+            <span>Restaurants</span>
+          </a>
+          <a href="sightseeing.html" class="ticket-item">
+            <span class="ticket-icon">🗼</span>
+            <span>Sightseeing</span>
+          </a>
+          <a href="activities.html" class="ticket-item">
+            <span class="ticket-icon">🎭</span>
+            <span>Activities</span>
+          </a>
+          <a href="packing.html" class="ticket-item">
+            <span class="ticket-icon">🧳</span>
+            <span>Packing List</span>
+          </a>
+          <a href="budget.html" class="ticket-item">
+            <span class="ticket-icon">💰</span>
+            <span>Budget</span>
+          </a>
+        </div>
+      </div>
+
+      <h1>
+        <a href="index.html">Traveling with friends</a>
+      </h1>
+
+      <label
+        class="dark-mode-toggle"
+        onchange="
+      event.stopPropagation();
+      toggleDarkMode(event.target, event.target.checked);
+    "
+      >
+        <input type="checkbox" />
+        <span class="toggle-icon sun">☀️</span>
+        <span class="toggle-icon moon">🌙</span>
+      </label>
     </header>
 
-    <a href="index.html">Back to home</a>
-    <section class="taxi">
-      <h2>Taxis</h2>
+    <section class="boarding-pass">
+      <div class="bp-left">
+        <div class="bp-top">
+          <h2 class="bp-title">BOARDING PASS</h2>
+          <p class="bp-airline">Air France</p>
+        </div>
+
+        <div class="bp-route">
+          <div class="bp-loc">
+            <span class="bp-code">SFO</span>
+            <span class="bp-city">San Francisco</span>
+          </div>
+          <span class="bp-arrow">✈️</span>
+          <div class="bp-loc">
+            <span class="bp-code">CDG</span>
+            <span class="bp-city">Paris</span>
+          </div>
+        </div>
+
+        <div class="bp-details">
+          <div><strong>Flight</strong> AF1775</div>
+          <div><strong>Date</strong> April 15 </div>
+          <div><strong>Departure</strong> 8:30 AM</div>
+          <div><strong>Arrival</strong> 11:15 PM </div>
+        </div>
+      </div>
+
+      <div class="bp-right">
+        <p class="bp-stub-title">BOARDING STUB</p>
+        <p class="bp-stub-flight">AF1775</p>
+        <div class="bp-barcode"></div>
+      </div>
     </section>
-    <section class="train">
-      <h2>Trains</h2>
+
+    <section class="boarding-pass">
+      <div class="bp-left">
+        <div class="bp-top">
+          <h2 class="bp-title">BOARDING PASS</h2>
+          <p class="bp-airline">Air France</p>
+        </div>
+
+        <div class="bp-route">
+          <div class="bp-loc">
+            <span class="bp-code">CDG</span>
+            <span class="bp-city">Paris</span>
+          </div>
+          <span class="bp-arrow">✈️</span>
+          <div class="bp-loc">
+            <span class="bp-code">SVQ</span>
+            <span class="bp-city">Seville</span>
+          </div>
+        </div>
+
+        <div class="bp-details">
+          <div><strong>Flight</strong> AF1223</div>
+          <div><strong>Date</strong> April 16</div>
+          <div><strong>Departure</strong> 10:30 AM</div>
+          <div><strong>Arrival</strong> 12:15 PM</div>
+        </div>
+      </div>
+
+      <div class="bp-right">
+        <p class="bp-stub-title">BOARDING STUB</p>
+        <p class="bp-stub-flight">AF1223</p>
+        <div class="bp-barcode"></div>
+      </div>
     </section>
-    <section class="plane">
-      <h2>Planes</h2>
+
+    <section class="boarding-pass">
+      <div class="bp-left">
+        <div class="bp-top">
+          <h2 class="bp-title">BOARDING PASS</h2>
+          <p class="bp-airline">Air France/p>
+        </div>
+
+        <div class="bp-route">
+          <div class="bp-loc">
+            <span class="bp-code">SVQ</span>
+            <span class="bp-city">Seville</span>
+          </div>
+          <span class="bp-arrow">✈️</span>
+          <div class="bp-loc">
+            <span class="bp-code">CDG</span>
+            <span class="bp-city">Paris</span>
+          </div>
+        </div>
+
+        <div class="bp-details">
+          <div><strong>Flight</strong> AF4683</div>
+          <div><strong>Date</strong> April 24</div>
+          <div><strong>Departure</strong> 8:45 AM</div>
+          <div><strong>Arrival</strong> 12:15 PM</div>
+        </div>
+      </div>
+
+      <div class="bp-right">
+        <p class="bp-stub-title">BOARDING STUB</p>
+        <p class="bp-stub-flight">AF4683</p>
+        <div class="bp-barcode"></div>
+      </div>
+    </section>
+
+    <section class="boarding-pass">
+      <div class="bp-left">
+        <div class="bp-top">
+          <h2 class="bp-title">BOARDING PASS</h2>
+          <p class="bp-airline">Air France</p>
+        </div>
+
+        <div class="bp-route">
+          <div class="bp-loc">
+            <span class="bp-code">CDG</span>
+            <span class="bp-city">Paris</span>
+          </div>
+          <span class="bp-arrow">✈️</span>
+          <div class="bp-loc">
+            <span class="bp-code">SFO</span>
+            <span class="bp-city">San Francisco</span>
+          </div>
+        </div>
+
+        <div class="bp-details">
+          <div><strong>Flight</strong> AF2489</div>
+          <div><strong>Date</strong> April 24</div>
+          <div><strong>Departure</strong> 7:30 PM</div>
+          <div><strong>Arrival</strong> 3:00 PM</div>
+        </div>
+      </div>
+
+      <div class="bp-right">
+        <p class="bp-stub-title">BOARDING STUB</p>
+        <p class="bp-stub-flight">AF2489</p>
+        <div class="bp-barcode"></div>
+      </div>
     </section>
   </body>
 </html>
