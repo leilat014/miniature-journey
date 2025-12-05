@@ -1,49 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <link rel="stylesheet" href="styles/tokens.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>How to Get Around</title>
   </head>
-  <header>
-    <h1 class="nav">Activities</h1>
-  </header>
-  <body>
-    <a href="index.html">Back to home</a>
-    <h2>Seville</h2>
-    <ul>
-      <li>
-        <p>Walk around</p>
-      </li>
-      <li>
-        <p>Boat tour</p>
-      </li>
-      <li>
-        <p>Visit Seville Museum of Fine Arts</p>
-      </li>
-    </ul>
-    <h2>Paris</h2>
-    <ul>
-      <li>
-        <p>Visit Angelina</p>
-      </li>
-      <li>
-        <p>Walk around Jardin des Tuileries</p>
-      </li>
-      <li>
-        <p>Go see Galeries Lafayette</p>
-      </li>
-    </ul>
-    <h2>Lake Como</h2>
-    <ul>
-      <li>
-        <p>Visit lakeside towns</p>
-      </li>
-      <li>
-        <p>Tour historic villas</p>
-      </li>
-      <li>
-        <p>Hike</p>
-      </li>
-    </ul>
-  </body>
+  <body class="page">
+    <header>
+      <button class="hamburger-menu" aria-label="Menu">
+        <span class="hamburger-icon">☰</span>
+      </button>
+
+      <div class="dropdown-menu">
+        <div class="ticket">
+          <div class="ticket-header">✈️ Quick Links</div>
+          <a href="index.html" class="ticket-item">
+            <span class="ticket-icon">🏠</span>
+            <span>Home</span>
+          </a>
+          <a href="transportation.html" class="ticket-item">
+            <span class="ticket-icon">🚗</span>
+            <span>Transportation</span>
+          </a>
+          <a href="restaurants.html" class="ticket-item">
+            <span class="ticket-icon">🍽️</span>
+            <span>Restaurants</span>
+          </a>
+          <a href="sightseeing.html" class="ticket-item">
+            <span class="ticket-icon">🗼</span>
+            <span>Sightseeing</span>
+          </a>
+          <a href="activities.html" class="ticket-item">
+            <span class="ticket-icon">🎭</span>
+            <span>Activities</span>
+          </a>
+          <a href="packing.html" class="ticket-item">
+            <span class="ticket-icon">🧳</span>
+            <span>Packing List</span>
+          </a>
+          <a href="budget.html" class="ticket-item">
+            <span class="ticket-icon">💰</span>
+            <span>Budget</span>
+          </a>
+        </div>
+      </div>
+
+      <h1>
+        <a href="index.html">Traveling with friends</a>
+      </h1>
+
+      <label
+        class="dark-mode-toggle"
+        onchange="
+      event.stopPropagation();
+      toggleDarkMode(event.target, event.target.checked);
+    "
+      >
+        <input type="checkbox" />
+        <span class="toggle-icon sun">☀️</span>
+        <span class="toggle-icon moon">🌙</span>
+      </label>
+    </header>
+
+    <section class="content">
+  <trip-element>
+
+    <trip-section>
+      <h2 class="section-title">🌸 Plaza de España</h2>
+      <p>
+        Wander through Seville’s most iconic plaza — tiled bridges, peaceful canals, and
+        stunning architecture from the 1929 Ibero-American Exposition. Great for photos!
+      </p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">🌿 Maria Luisa Park</h2>
+      <p>
+        Right next to Plaza de España, this lush park is perfect for a relaxing stroll,
+        bike ride, or shaded break under palm trees and fountains.
+      </p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">🏰 Royal Alcázar of Seville</h2>
+      <p>
+        Explore centuries of Moorish architecture, ornate tilework, and sprawling palace
+        gardens. One of Seville’s absolute must-see landmarks.
+      </p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">⛪ Seville Cathedral & Giralda Tower</h2>
+      <p>
+        Visit the largest Gothic cathedral in the world, then climb the Giralda Tower’s
+        ramps for incredible city views.
+      </p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">💃 Flamenco in Triana</h2>
+      <p>
+        Catch an authentic flamenco performance in Triana, the neighborhood where the
+        tradition was born. Intense, emotional, and unforgettable.
+      </p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">🍊 Explore the Santa Cruz Neighborhood</h2>
+      <p>
+        Get lost in Seville’s charming maze of narrow streets, hidden plazas, and
+        orange-scented courtyards. Great area for tapas too!
+      </p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">🏛️ Metropol Parasol (“Las Setas”)</h2>
+      <p>
+        Walk along the wooden canopy, enjoy modern architecture, and see panoramic views
+        of Seville — especially beautiful at sunset.
+      </p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">🛶 Guadalquivir River Walk</h2>
+      <p>
+        Take a scenic riverside walk or book a relaxing boat cruise to experience the city
+        from the water.
+      </p>
+    </trip-section>
+
+  </trip-element>
+</section>
+
+
 </html>

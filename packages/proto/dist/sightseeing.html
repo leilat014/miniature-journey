@@ -1,49 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <link rel="stylesheet" href="styles/tokens.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>How to Get Around</title>
   </head>
-  <header>
-    <h1 class="nav">Places to see!</h1>
-  </header>
-  <body>
-    <a href="index.html">Back to home</a>
-    <h2>Seville</h2>
-    <ul>
-      <li>
-        <p>Plaza de España</p>
-      </li>
-      <li>
-        <p>La Giralda</p>
-      </li>
-      <li>
-        <p>Setas de Sevilla</p>
-      </li>
-    </ul>
-    <h2>Paris</h2>
-    <ul>
-      <li>
-        <p>Notre Dame</p>
-      </li>
-      <li>
-        <p>Les Tuileries</p>
-      </li>
-      <li>
-        <p>Palais Garnier</p>
-      </li>
-    </ul>
-    <h2>Lake Como</h2>
-    <ul>
-      <li>
-        <p>Bellagio</p>
-      </li>
-      <li>
-        <p>Como</p>
-      </li>
-      <li>
-        <p>Varenna</p>
-      </li>
-    </ul>
+  <body class="page">
+    <header>
+      <button class="hamburger-menu" aria-label="Menu">
+        <span class="hamburger-icon">☰</span>
+      </button>
+
+      <div class="dropdown-menu">
+        <div class="ticket">
+          <div class="ticket-header">✈️ Quick Links</div>
+          <a href="index.html" class="ticket-item">
+            <span class="ticket-icon">🏠</span>
+            <span>Home</span>
+          </a>
+          <a href="transportation.html" class="ticket-item">
+            <span class="ticket-icon">🚗</span>
+            <span>Transportation</span>
+          </a>
+          <a href="restaurants.html" class="ticket-item">
+            <span class="ticket-icon">🍽️</span>
+            <span>Restaurants</span>
+          </a>
+          <a href="sightseeing.html" class="ticket-item">
+            <span class="ticket-icon">🗼</span>
+            <span>Sightseeing</span>
+          </a>
+          <a href="activities.html" class="ticket-item">
+            <span class="ticket-icon">🎭</span>
+            <span>Activities</span>
+          </a>
+          <a href="packing.html" class="ticket-item">
+            <span class="ticket-icon">🧳</span>
+            <span>Packing List</span>
+          </a>
+          <a href="budget.html" class="ticket-item">
+            <span class="ticket-icon">💰</span>
+            <span>Budget</span>
+          </a>
+        </div>
+      </div>
+
+      <h1>
+        <a href="index.html">Traveling with friends</a>
+      </h1>
+
+      <label
+        class="dark-mode-toggle"
+        onchange="
+      event.stopPropagation();
+      toggleDarkMode(event.target, event.target.checked);
+    "
+      >
+        <input type="checkbox" />
+        <span class="toggle-icon sun">☀️</span>
+        <span class="toggle-icon moon">🌙</span>
+      </label>
+    </header>
+
+    <section class="content">
+      <trip-element>
+        <trip-section>
+          <h2 class="section-title">🏰 Alcázar of Seville</h2>
+          <p>Palace rooms, mosaics, big gardens.</p>
+        </trip-section>
+
+        <trip-section>
+          <h2 class="section-title">⛪ Seville Cathedral</h2>
+          <p>Massive Gothic cathedral, climb the tower.</p>
+        </trip-section>
+
+        <trip-section>
+          <h2 class="section-title">🌸 Plaza de España</h2>
+          <p>Huge semicircle plaza, bridges and tiles.</p>
+        </trip-section>
+
+        <trip-section>
+          <h2 class="section-title">🌿 Maria Luisa Park</h2>
+          <p>Shaded paths, fountains, calm walking.</p>
+        </trip-section>
+
+        <trip-section>
+          <h2 class="section-title">🏛️ Metropol Parasol</h2>
+          <p>Wooden structure, rooftop walkway.</p>
+        </trip-section>
+
+        <trip-section>
+          <h2 class="section-title">💃 Triana Neighborhood</h2>
+          <p>Colorful streets, ceramics, flamenco bars.</p>
+        </trip-section>
+
+        <trip-section>
+          <h2 class="section-title">🕌 Casa de Pilatos</h2>
+          <p>Mix of Mudejar + Renaissance, quiet courtyard.</p>
+        </trip-section>
+      </trip-element>
+    </section>
   </body>
 </html>

@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <link rel="stylesheet" href="styles/tokens.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
     <style>
+      /* your calculator styles unchanged */
       .calculator {
         background: white;
         border-radius: 20px;
@@ -13,31 +23,23 @@
         max-width: 400px;
         margin: 30px auto;
       }
-
       .calculator-header {
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
         text-align: center;
         margin-bottom: 30px;
       }
-
       .calculator-header h2 {
-        font-family: "Courier New", Courier, monospace;
         color: #333;
         margin: 0 0 10px 0;
         font-size: 24px;
       }
-
       .calculator-header p {
         color: #666;
         margin: 0;
         font-size: 14px;
       }
-
       .converter-section {
         margin-bottom: 20px;
       }
-
       .currency-label {
         display: flex;
         align-items: center;
@@ -46,31 +48,26 @@
         color: #333;
         font-weight: 500;
       }
-
       .flag {
         font-size: 24px;
       }
-
       .input-group {
         position: relative;
         margin-bottom: 15px;
       }
-
       .currency-input {
         width: 100%;
         padding: 15px 50px 15px 15px;
         border: 2px solid #e0e0e0;
         border-radius: 10px;
         font-size: 20px;
-        font-family: "Rubik", monospace;
+        font-family: 'Rubik', monospace;
         transition: border-color 0.3s;
       }
-
       .currency-input:focus {
         outline: none;
         border-color: #667eea;
       }
-
       .currency-symbol {
         position: absolute;
         right: 15px;
@@ -80,13 +77,11 @@
         color: #666;
         font-weight: bold;
       }
-
       .swap-button {
         display: flex;
         justify-content: center;
         margin: 20px 0;
       }
-
       .swap-btn {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
@@ -99,16 +94,13 @@
         transition: transform 0.3s, box-shadow 0.3s;
         box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
       }
-
       .swap-btn:hover {
         transform: rotate(180deg) scale(1.1);
         box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
       }
-
       .swap-btn:active {
         transform: rotate(180deg) scale(0.95);
       }
-
       .rate-info {
         text-align: center;
         margin-top: 20px;
@@ -118,11 +110,9 @@
         color: #666;
         font-size: 14px;
       }
-
       .rate-info strong {
         color: #333;
       }
-
       .display-result {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
@@ -135,11 +125,62 @@
       }
     </style>
   </head>
-  <header>
-    <h1 class="nav">Budget Table</h1>
-  </header>
-  <body>
-    <a href="index.html">Back to home</a>
+
+  <body class="page">
+
+    <!-- MAIN HEADER -->
+    <header>
+      <button class="hamburger-menu" aria-label="Menu">
+        <span class="hamburger-icon">☰</span>
+      </button>
+
+      <div class="dropdown-menu">
+        <div class="ticket">
+          <div class="ticket-header">✈️ Quick Links</div>
+          <a href="index.html" class="ticket-item">
+            <span class="ticket-icon">🏠</span>
+            <span>Home</span>
+          </a>
+          <a href="transportation.html" class="ticket-item">
+            <span class="ticket-icon">🚗</span>
+            <span>Transportation</span>
+          </a>
+          <a href="restaurants.html" class="ticket-item">
+            <span class="ticket-icon">🍽️</span>
+            <span>Restaurants</span>
+          </a>
+          <a href="sightseeing.html" class="ticket-item">
+            <span class="ticket-icon">🗼</span>
+            <span>Sightseeing</span>
+          </a>
+          <a href="activities.html" class="ticket-item">
+            <span class="ticket-icon">🎭</span>
+            <span>Activities</span>
+          </a>
+          <a href="packing.html" class="ticket-item">
+            <span class="ticket-icon">🧳</span>
+            <span>Packing List</span>
+          </a>
+          <a href="budget.html" class="ticket-item">
+            <span class="ticket-icon">💰</span>
+            <span>Budget</span>
+          </a>
+        </div>
+      </div>
+
+      <h1>
+        <a href="index.html">Traveling with friends</a>
+      </h1>
+
+      <label
+        class="dark-mode-toggle"
+        onchange="event.stopPropagation(); toggleDarkMode(event.target, event.target.checked);"
+      >
+        <input type="checkbox" />
+        <span class="toggle-icon sun">☀️</span>
+        <span class="toggle-icon moon">🌙</span>
+      </label>
+    </header>
 
     <!-- Currency Calculator -->
     <div class="calculator">
@@ -154,14 +195,14 @@
           <span>Euro (EUR)</span>
         </div>
         <div class="input-group">
-          <input
-            type="number"
-            class="currency-input"
-            id="euroInput"
+          <input 
+            type="number" 
+            class="currency-input" 
+            id="euroInput" 
             placeholder="0.00"
             step="0.01"
             min="0"
-          />
+          >
           <span class="currency-symbol">€</span>
         </div>
       </div>
@@ -176,14 +217,14 @@
           <span>US Dollar (USD)</span>
         </div>
         <div class="input-group">
-          <input
-            type="number"
-            class="currency-input"
-            id="usdInput"
+          <input 
+            type="number" 
+            class="currency-input" 
+            id="usdInput" 
             placeholder="0.00"
             step="0.01"
             min="0"
-          />
+          >
           <span class="currency-symbol">$</span>
         </div>
       </div>
@@ -192,55 +233,34 @@
         Exchange rate: <strong>1 EUR = 1.08 USD</strong>
       </div>
 
-      <div class="display-result" id="result">Enter an amount to convert</div>
+      <div class="display-result" id="result">
+        Enter an amount to convert
+      </div>
     </div>
 
-    <!-- Budget Table -->
-    <table>
-      <tr>
-        <th>Currency</th>
-        <th>Place</th>
-        <th>Limits</th>
-      </tr>
-      <tr>
-        <th>Euros</th>
-        <th>Paris</th>
-        <th>Cap at 200 euros</th>
-      </tr>
-      <tr>
-        <th>Euros</th>
-        <th>Italy</th>
-        <th>Cap at 100 euros</th>
-      </tr>
-    </table>
-
     <script>
-      // Exchange rate (you can update this or fetch from an API)
-      const EXCHANGE_RATE = 1.08; // 1 EUR = 1.08 USD
+      const EXCHANGE_RATE = 1.08;
 
-      const euroInput = document.getElementById("euroInput");
-      const usdInput = document.getElementById("usdInput");
-      const swapBtn = document.getElementById("swapBtn");
-      const result = document.getElementById("result");
+      const euroInput = document.getElementById('euroInput');
+      const usdInput = document.getElementById('usdInput');
+      const swapBtn = document.getElementById('swapBtn');
+      const result = document.getElementById('result');
 
-      // Convert EUR to USD
-      euroInput.addEventListener("input", function () {
+      euroInput.addEventListener('input', function() {
         const euroAmount = parseFloat(this.value) || 0;
         const usdAmount = (euroAmount * EXCHANGE_RATE).toFixed(2);
         usdInput.value = usdAmount;
-        updateResult("eur", euroAmount, usdAmount);
+        updateResult('eur', euroAmount, usdAmount);
       });
 
-      // Convert USD to EUR
-      usdInput.addEventListener("input", function () {
+      usdInput.addEventListener('input', function() {
         const usdAmount = parseFloat(this.value) || 0;
         const euroAmount = (usdAmount / EXCHANGE_RATE).toFixed(2);
         euroInput.value = euroAmount;
-        updateResult("usd", euroAmount, usdAmount);
+        updateResult('usd', euroAmount, usdAmount);
       });
 
-      // Swap button functionality
-      swapBtn.addEventListener("click", function () {
+      swapBtn.addEventListener('click', function() {
         const tempValue = euroInput.value;
         euroInput.value = usdInput.value;
         usdInput.value = tempValue;
@@ -249,22 +269,23 @@
           const euroAmount = parseFloat(euroInput.value) || 0;
           const usdAmount = (euroAmount * EXCHANGE_RATE).toFixed(2);
           usdInput.value = usdAmount;
-          updateResult("eur", euroAmount, usdAmount);
+          updateResult('eur', euroAmount, usdAmount);
         }
       });
 
       function updateResult(type, euroAmount, usdAmount) {
         if (euroAmount === 0 && usdAmount === 0) {
-          result.textContent = "Enter an amount to convert";
+          result.textContent = 'Enter an amount to convert';
           return;
         }
 
-        if (type === "eur") {
+        if (type === 'eur') {
           result.textContent = `€${euroAmount.toFixed(2)} = $${usdAmount}`;
         } else {
           result.textContent = `$${usdAmount.toFixed(2)} = €${euroAmount}`;
         }
       }
     </script>
+
   </body>
 </html>

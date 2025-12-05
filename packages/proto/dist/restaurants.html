@@ -1,27 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <link rel="stylesheet" href="styles/tokens.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>How to Get Around</title>
   </head>
-  <header>
-    <h1 class="nav">Places to eat!</h1>
-  </header>
-  <body>
-    <a href="index.html">Back to home</a>
-    <h2>Restaurant list</h2>
-    <section class="resto-list">
-      <ul>
-        <li>
-          <p>Restaurant 1</p>
-        </li>
-        <li>
-          <p>Restaurant 2</p>
-        </li>
-        <li>
-          <p>Restaurant 3</p>
-        </li>
-      </ul>
-    </section>
+  <body class="page">
+    <header>
+      <button class="hamburger-menu" aria-label="Menu">
+        <span class="hamburger-icon">☰</span>
+      </button>
+
+      <div class="dropdown-menu">
+        <div class="ticket">
+          <div class="ticket-header">✈️ Quick Links</div>
+          <a href="index.html" class="ticket-item">
+            <span class="ticket-icon">🏠</span>
+            <span>Home</span>
+          </a>
+          <a href="transportation.html" class="ticket-item">
+            <span class="ticket-icon">🚗</span>
+            <span>Transportation</span>
+          </a>
+          <a href="restaurants.html" class="ticket-item">
+            <span class="ticket-icon">🍽️</span>
+            <span>Restaurants</span>
+          </a>
+          <a href="sightseeing.html" class="ticket-item">
+            <span class="ticket-icon">🗼</span>
+            <span>Sightseeing</span>
+          </a>
+          <a href="activities.html" class="ticket-item">
+            <span class="ticket-icon">🎭</span>
+            <span>Activities</span>
+          </a>
+          <a href="packing.html" class="ticket-item">
+            <span class="ticket-icon">🧳</span>
+            <span>Packing List</span>
+          </a>
+          <a href="budget.html" class="ticket-item">
+            <span class="ticket-icon">💰</span>
+            <span>Budget</span>
+          </a>
+        </div>
+      </div>
+
+      <h1>
+        <a href="index.html">Traveling with friends</a>
+      </h1>
+
+      <label
+        class="dark-mode-toggle"
+        onchange="
+      event.stopPropagation();
+      toggleDarkMode(event.target, event.target.checked);
+    "
+      >
+        <input type="checkbox" />
+        <span class="toggle-icon sun">☀️</span>
+        <span class="toggle-icon moon">🌙</span>
+      </label>
+    </header>
+
+<section class="content">
+  <trip-element>
+
+    <trip-section>
+      <h2 class="section-title">🍤 El Rinconcillo</h2>
+      <p>Classic tapas bar, historic feel, great croquetas.</p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">🥘 La Brunilda</h2>
+      <p>Modern tapas, popular spot, expect a short wait.</p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">🍷 Ovejas Negras</h2>
+      <p>Trendy fusion tapas, lively vibe.</p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">🐟 Casa Morales</h2>
+      <p>Old-school bodega, simple plates, great atmosphere.</p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">🍢 Vinería San Telmo</h2>
+      <p>Creative small plates, good wines.</p>
+    </trip-section>
+
+    <trip-section>
+      <h2 class="section-title">🥗 ConTenedor</h2>
+      <p>Seasonal dishes, relaxed and artsy.</p>
+    </trip-section>
+
+  </trip-element>
+</section>
+
   </body>
 </html>
