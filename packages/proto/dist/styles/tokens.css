@@ -9,12 +9,11 @@
 
 body {
   background: var(--color-background);
-  background-image: url("sky.jpeg");
   color: var(--color-text);
 }
 
 body.dark-mode {
-  --color-header: #006699;
+  --color-header: #101112;
   --color-header-background: #000000;
   --color-main: var(--color-text);
   --color-accent: #8b0000;

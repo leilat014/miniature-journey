@@ -26,14 +26,16 @@ var import_mongo = require("./services/mongo");
 var import_traveler_svc = __toESM(require("./services/traveler-svc"));
 var import_travelers = __toESM(require("./routes/travelers"));
 var import_auth = __toESM(require("./routes/auth"));
+var import_path = __toESM(require("path"));
 (0, import_mongo.connect)("miniature-journey");
 const app = (0, import_express.default)();
 const port = process.env.PORT || 3e3;
 const staticDir = process.env.STATIC || "public";
 app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
-app.use("/api/travelers", import_travelers.default);
+app.use("/api/travelers", import_auth.authenticateUser, import_travelers.default);
 app.use("/auth", import_auth.default);
+app.use(import_express.default.static(import_path.default.resolve(__dirname, "../../proto")));
 app.get("/travelers/:userid", (req, res) => {
   const { userid } = req.params;
   import_traveler_svc.default.get(userid).then((data) => {

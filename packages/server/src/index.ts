@@ -2,7 +2,8 @@ import express, { Request, Response } from "express";
 import { connect } from "./services/mongo";
 import Travelers from "./services/traveler-svc";
 import travelers from "./routes/travelers";
-import auth from "./routes/auth";
+import auth, { authenticateUser } from "./routes/auth";
+import path from "path";
 
 connect("miniature-journey");
 
@@ -13,9 +14,11 @@ const staticDir = process.env.STATIC || "public";
 app.use(express.static(staticDir));
 app.use(express.json());
 
-app.use("/api/travelers", travelers);
+app.use("/api/travelers", authenticateUser, travelers);
 
 app.use("/auth", auth);
+
+app.use(express.static(path.resolve(__dirname, "../../proto")));
 
 app.get("/travelers/:userid", (req: Request, res: Response) => {
   const { userid } = req.params;

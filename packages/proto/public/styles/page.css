@@ -14,11 +14,12 @@ header {
   /* border: 2px solid #8B0000; */
 }
 
-/* trip-element {
+trip-element {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2em;
-} */
+  grid-column: 1/-1;
+}
 
 .section-title {
   font-family: "Fjalla One", sans-serif;
@@ -98,14 +99,14 @@ p {
   color: var(--color-text);
 }
 
-.itinerary,
+/* .itinerary,
 .preparations,
 .budget {
   order: 0;
   width: 300px;
   border: 2px solid var(--color-accent);
   padding: 1.5em;
-}
+} */
 
 h1,
 h2,
@@ -148,6 +149,7 @@ svg.icon {
   padding: 2em;
   /* border: 2px solid var(--color-accent); */
 }
+
 /* color combos: */
 /* #495057
 #8B0000

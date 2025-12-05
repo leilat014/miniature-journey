@@ -9,7 +9,6 @@
 
 body {
   background: var(--color-background);
-  background-image: url("sky.jpeg");
   color: var(--color-text);
 }
 

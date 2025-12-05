@@ -11,14 +11,29 @@ header {
   grid-column */
   /* border-radius: 10%; */
   /* border-bottom-left-radius: 10%; */
-  /* border: 2px solid #8B0000; */
 }
 
-/* trip-element {
+trip-element {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2em;
-} */
+  grid-column: 1/-1;
+}
+
+trip-section {
+  display: block;
+  border: 2px solid var(--color-accent);
+  border-radius: 15px;
+  padding: 0em;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--color-background, white);
+}
+
+trip-section:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
 
 .section-title {
   font-family: "Fjalla One", sans-serif;
@@ -98,14 +113,23 @@ p {
   color: var(--color-text);
 }
 
-.itinerary,
+/* .itinerary,
 .preparations,
 .budget {
   order: 0;
   width: 300px;
   border: 2px solid var(--color-accent);
+  border-radius: 15px;
   padding: 1.5em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.itinerary:hover,
+.preparations:hover,
+.budget:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+} */
 
 h1,
 h2,
@@ -146,7 +170,6 @@ svg.icon {
   height: 100%;
   object-fit: cover;
   padding: 2em;
-  /* border: 2px solid var(--color-accent); */
 }
 /* color combos: */
 /* #495057

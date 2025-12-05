@@ -28,6 +28,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var auth_exports = {};
 __export(auth_exports, {
+  authenticateUser: () => authenticateUser,
   default: () => auth_default
 });
 module.exports = __toCommonJS(auth_exports);
@@ -71,4 +72,20 @@ function generateAccessToken(username) {
     );
   });
 }
+function authenticateUser(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (!token) {
+    res.status(401).end();
+  } else {
+    import_jsonwebtoken.default.verify(token, TOKEN_SECRET, (error, decoded) => {
+      if (decoded) next();
+      else res.status(401).end();
+    });
+  }
+}
 var auth_default = router;
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  authenticateUser
+});

@@ -3,12 +3,199 @@
   <head>
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="stylesheet" href="styles/tokens.css" />
+    <style>
+      .calculator {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+        width: 100%;
+        max-width: 400px;
+        margin: 30px auto;
+      }
+
+      .calculator-header {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .calculator-header h2 {
+        font-family: "Courier New", Courier, monospace;
+        color: #333;
+        margin: 0 0 10px 0;
+        font-size: 24px;
+      }
+
+      .calculator-header p {
+        color: #666;
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .converter-section {
+        margin-bottom: 20px;
+      }
+
+      .currency-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .flag {
+        font-size: 24px;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      .currency-input {
+        width: 100%;
+        padding: 15px 50px 15px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 20px;
+        font-family: "Rubik", monospace;
+        transition: border-color 0.3s;
+      }
+
+      .currency-input:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .currency-symbol {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: #666;
+        font-weight: bold;
+      }
+
+      .swap-button {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .swap-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .swap-btn:hover {
+        transform: rotate(180deg) scale(1.1);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+      }
+
+      .swap-btn:active {
+        transform: rotate(180deg) scale(0.95);
+      }
+
+      .rate-info {
+        text-align: center;
+        margin-top: 20px;
+        padding: 15px;
+        background: #f5f5f5;
+        border-radius: 10px;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .rate-info strong {
+        color: #333;
+      }
+
+      .display-result {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: 500;
+      }
+    </style>
   </head>
   <header>
     <h1 class="nav">Budget Table</h1>
   </header>
   <body>
     <a href="index.html">Back to home</a>
+
+    <!-- Currency Calculator -->
+    <div class="calculator">
+      <div class="calculator-header">
+        <h2>💱 Currency Converter</h2>
+        <p>Euro ⇄ US Dollar</p>
+      </div>
+
+      <div class="converter-section">
+        <div class="currency-label">
+          <span class="flag">🇪🇺</span>
+          <span>Euro (EUR)</span>
+        </div>
+        <div class="input-group">
+          <input
+            type="number"
+            class="currency-input"
+            id="euroInput"
+            placeholder="0.00"
+            step="0.01"
+            min="0"
+          />
+          <span class="currency-symbol">€</span>
+        </div>
+      </div>
+
+      <div class="swap-button">
+        <button class="swap-btn" id="swapBtn">⇅</button>
+      </div>
+
+      <div class="converter-section">
+        <div class="currency-label">
+          <span class="flag">🇺🇸</span>
+          <span>US Dollar (USD)</span>
+        </div>
+        <div class="input-group">
+          <input
+            type="number"
+            class="currency-input"
+            id="usdInput"
+            placeholder="0.00"
+            step="0.01"
+            min="0"
+          />
+          <span class="currency-symbol">$</span>
+        </div>
+      </div>
+
+      <div class="rate-info" id="rateInfo">
+        Exchange rate: <strong>1 EUR = 1.08 USD</strong>
+      </div>
+
+      <div class="display-result" id="result">Enter an amount to convert</div>
+    </div>
+
+    <!-- Budget Table -->
     <table>
       <tr>
         <th>Currency</th>
@@ -26,5 +213,58 @@
         <th>Cap at 100 euros</th>
       </tr>
     </table>
+
+    <script>
+      // Exchange rate (you can update this or fetch from an API)
+      const EXCHANGE_RATE = 1.08; // 1 EUR = 1.08 USD
+
+      const euroInput = document.getElementById("euroInput");
+      const usdInput = document.getElementById("usdInput");
+      const swapBtn = document.getElementById("swapBtn");
+      const result = document.getElementById("result");
+
+      // Convert EUR to USD
+      euroInput.addEventListener("input", function () {
+        const euroAmount = parseFloat(this.value) || 0;
+        const usdAmount = (euroAmount * EXCHANGE_RATE).toFixed(2);
+        usdInput.value = usdAmount;
+        updateResult("eur", euroAmount, usdAmount);
+      });
+
+      // Convert USD to EUR
+      usdInput.addEventListener("input", function () {
+        const usdAmount = parseFloat(this.value) || 0;
+        const euroAmount = (usdAmount / EXCHANGE_RATE).toFixed(2);
+        euroInput.value = euroAmount;
+        updateResult("usd", euroAmount, usdAmount);
+      });
+
+      // Swap button functionality
+      swapBtn.addEventListener("click", function () {
+        const tempValue = euroInput.value;
+        euroInput.value = usdInput.value;
+        usdInput.value = tempValue;
+
+        if (euroInput.value) {
+          const euroAmount = parseFloat(euroInput.value) || 0;
+          const usdAmount = (euroAmount * EXCHANGE_RATE).toFixed(2);
+          usdInput.value = usdAmount;
+          updateResult("eur", euroAmount, usdAmount);
+        }
+      });
+
+      function updateResult(type, euroAmount, usdAmount) {
+        if (euroAmount === 0 && usdAmount === 0) {
+          result.textContent = "Enter an amount to convert";
+          return;
+        }
+
+        if (type === "eur") {
+          result.textContent = `€${euroAmount.toFixed(2)} = $${usdAmount}`;
+        } else {
+          result.textContent = `$${usdAmount.toFixed(2)} = €${euroAmount}`;
+        }
+      }
+    </script>
   </body>
 </html>
