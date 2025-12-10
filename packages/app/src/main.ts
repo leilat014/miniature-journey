@@ -7,6 +7,7 @@ import { RestaurantViewElement } from "./views/restaurants-view";
 import { SightseeingViewElement } from "./views/sightseeing-view";
 import { PackingViewElement } from "./views/packing-view";
 import { BudgetViewElement } from "./views/budget-view";
+import { TravelerViewElement } from "./views/traveler-view";
 
 const routes = [
   {
@@ -61,6 +62,7 @@ define({
   "sightseeing-view": SightseeingViewElement,
   "packing-view": PackingViewElement,
   "budget-view": BudgetViewElement,
+  "traveler-view": TravelerViewElement
 });
 
 // Dark mode toggle functionality

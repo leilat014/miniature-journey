@@ -1,0 +1,533 @@
+header {
+  background-color: var(--color-header-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 1em 1em 0.001em 1em !important;
+}
+
+header h1 {
+  margin: 0;
+  /* padding: 0; */
+}
+
+.dark-mode-toggle {
+  position: absolute;
+  right: 2em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+}
+
+.dark-mode-toggle input {
+  display: none;
+}
+
+.toggle-icon {
+  font-size: 2em;
+  transition: opacity 0.3s ease;
+}
+
+.toggle-icon.moon {
+  display: none;
+}
+
+.dark-mode .toggle-icon.sun {
+  display: none;
+}
+
+.dark-mode .toggle-icon.moon {
+  display: inline;
+}
+
+.hamburger-menu {
+  position: absolute;
+  left: auto;
+  right: 5em; /* Position it to the left of the dark mode button */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5em;
+  font-size: 2em;
+  color: var(--color-header);
+  transition: transform 0.3s ease;
+}
+
+.hamburger-menu:hover {
+  transform: scale(1.1);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 5em; /* Align with hamburger button */
+  left: auto; /* Remove left positioning */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.hamburger-menu:hover + .dropdown-menu,
+.dropdown-menu:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.ticket {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  min-width: 250px;
+  border: 2px dashed var(--color-accent);
+}
+
+.ticket-header {
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  /* color: white; */
+  padding: 1em;
+  font-family: "Fjalla One", sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.ticket-item {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  color: var(--color-text);
+  font-family: "Rubik", sans-serif;
+  border-bottom: 1px dashed #e0e0e0;
+  transition: background 0.2s ease;
+}
+
+.ticket-item:last-child {
+  border-bottom: none;
+}
+
+.ticket-item:hover {
+  background: #f5f5f5;
+}
+
+.ticket-icon {
+  font-size: 1.5em;
+}
+
+/* Dark mode styles */
+.dark-mode .ticket {
+  background: #2a2a2a;
+  border-color: var(--color-accent);
+}
+
+.dark-mode .ticket-item {
+  color: #e0e0e0;
+}
+
+.dark-mode .ticket-item:hover {
+  background: #3a3a3a;
+}
+
+trip-element {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+  grid-column: 1/-1;
+}
+
+trip-section {
+  display: block;
+  border: 2px solid grey;
+  border-radius: 15px;
+  padding: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--color-background, white);
+}
+
+trip-section:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+  font-family: "Fjalla One", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+article {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+  padding: 2em;
+  /* align-items: flex-start; */
+}
+
+.content {
+  /* flex: 1; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* flex-direction: column; */
+  gap: 2em;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+.page > header {
+  flex-basis: min-content;
+}
+.page > section {
+  flex-basis: 100%;
+  overflow: auto;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.nav {
+  font-family: "Fjalla One", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.6;
+}
+
+h1 {
+  color: var(--color-header);
+}
+
+h1 a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+}
+
+h1 a:hover {
+  opacity: 0.8;
+}
+
+body {
+  /* background-image: url('sky.jpeg');
+  background-size: auto 100vh;
+  background-attachment: fixed;
+  background-repeat: repeat-x;
+  background-position: center top; */
+  background-image: var(--color-background);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  /* background-color: #FFFAFA; */
+  font-family: "Libre Baskerville", serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h2,
+h3 {
+  color: var(--color-main);
+  padding: 1em;
+}
+
+p {
+  /* font-family: Rubik; */
+  color: var(--color-text);
+}
+
+/* .itinerary,
+.preparations,
+.budget {
+  order: 0;
+  width: 300px;
+  border: 2px solid var(--color-accent);
+  padding: 1.5em;
+} */
+
+h1,
+h2,
+h3 {
+  font-family: "Fjalla One", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+a,
+ul,
+table {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  padding-bottom: 2em;
+}
+
+svg.icon {
+  display: inline;
+  height: 2em;
+  width: 2em;
+  vertical-align: top;
+  fill: currentColor;
+}
+
+.france-pic {
+  grid-column: 1/-1;
+  /* grid-row: 1; */
+  width: 100%;
+  height: 100%;
+  max-height: 650px;
+  order: 1;
+}
+
+.france-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 2em;
+  /* border: 2px solid var(--color-accent); */
+}
+
+.transport-ticket {
+  width: 90%;
+  max-width: 600px;
+  margin: 2rem auto;
+  background: var(--surface);
+  border: 2px dashed var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  font-family: var(--font-body);
+  box-shadow: var(--shadow-lg);
+}
+
+.transport-ticket .ticket-header {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--border);
+  text-align: center;
+}
+
+.transport-ticket .ticket-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  font-size: 1.1rem;
+}
+
+.transport-ticket .ticket-label {
+  font-weight: bold;
+  color: var(--text-muted);
+}
+
+.transport-ticket .ticket-value {
+  font-family: var(--font-body);
+  color: var(--text);
+}
+
+.transport-ticket::after {
+  content: "";
+  display: block;
+  border-top: 2px dotted var(--border);
+  margin-top: 1.5rem;
+  opacity: 0.5;
+}
+
+/*******************************
+   ✈️ BOARDING PASS STYLES
+*******************************/
+.boarding-pass {
+  width: 95%;
+  max-width: 750px;
+  margin: 2rem auto 3rem; /* bottom margin added here */
+  background: var(--surface);
+  border-radius: 16px;
+  display: flex;
+  box-shadow: var(--shadow-lg);
+  border: 2px dashed grey;
+  overflow: visible !important;
+  padding-bottom: 2rem;
+}
+
+/* Left side */
+.bp-left {
+  flex: 3;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.bp-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.bp-airline {
+  font-family: var(--font-body);
+  margin: 0.2rem 0 0;
+  color: var(--text-muted);
+}
+
+/* Route section */
+.bp-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bp-code {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 3rem;
+  color: var(--text);
+}
+
+.bp-city {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.bp-arrow {
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
+/* Details grid */
+.bp-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 0.6rem;
+  column-gap: 1rem;
+  font-family: var(--font-body);
+}
+
+/* Right side stub */
+.bp-right {
+  flex: 1;
+  background: darkblue;
+  padding: 1rem;
+  border-left: 2px dotted var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.bp-stub-title {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  margin: 0;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.bp-stub-flight {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin: 1rem 0;
+}
+
+/* Fake barcode */
+.bp-barcode {
+  height: 50px;
+  background: repeating-linear-gradient(
+    to right,
+    white 0px,
+    white 2px,
+    black 2px,
+    black 4px
+  );
+  border-radius: 4px;
+}
+
+.traveler-intro {
+  text-align: center;
+  margin: 3rem auto;
+  grid-column: 1 / -1;
+}
+
+.traveler-intro h2 {
+  font-family: "Fjalla One", sans-serif;
+  margin-bottom: 1.5rem;
+  color: var(--color-main);
+}
+
+.traveler-link {
+  display: inline-block;
+  width: 100%;
+  max-width: 600px;
+}
+
+.traveler-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.2s ease;
+}
+
+.traveler-image:hover {
+  transform: scale(1.03);
+}
+
+.traveler-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.traveler-card {
+  background: var(--surface);
+  border: 2px solid grey;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.traveler-card:hover {
+  transform: translateY(-5px);
+}
+
+.traveler-card h3 {
+  font-family: "Fjalla One", sans-serif;
+  margin-bottom: 0.001rem;
+  margin-top: 0.001em;
+}
+
+.traveler-card p {
+  font-family: "Rubik", sans-serif;
+  color: var(--text);
+}
+
+
+
+/* color combos: */
+/* #495057
+#8B0000
+#006699 */
+/* atomic steel blue #1a385a */
+/* seagull blue #769abe
+tomato orange #e46f44
+pink shell #e8aa9b
+plum violet #dcd5dc */
