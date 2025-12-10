@@ -12,134 +12,27 @@
       rel="stylesheet"
     />
     <title>Miniature Journey</title>
-  </head>
-  <body class="page">
-    <header>
-      <button class="hamburger-menu" aria-label="Menu">
-        <span class="hamburger-icon">☰</span>
-      </button>
 
-      <div class="dropdown-menu">
-        <div class="ticket">
-          <div class="ticket-header">✈️ Quick Links</div>
-          <a href="transportation.html" class="ticket-item">
-            <span class="ticket-icon">🚗</span>
-            <span>Transportation</span>
-          </a>
-          <a href="restaurants.html" class="ticket-item">
-            <span class="ticket-icon">🍽️</span>
-            <span>Restaurants</span>
-          </a>
-          <a href="sightseeing.html" class="ticket-item">
-            <span class="ticket-icon">🗼</span>
-            <span>Sightseeing</span>
-          </a>
-          <a href="activities.html" class="ticket-item">
-            <span class="ticket-icon">🎭</span>
-            <span>Activities</span>
-          </a>
-          <a href="packing.html" class="ticket-item">
-            <span class="ticket-icon">🧳</span>
-            <span>Packing List</span>
-          </a>
-          <a href="budget.html" class="ticket-item">
-            <span class="ticket-icon">💰</span>
-            <span>Budget</span>
-          </a>
-        </div>
-      </div>
-
-      <h1>
-        <a href="index.html">
-          <!-- <svg class="icon">
-        <use href="/icons/plane.svg#icon-plane" />
-      </svg> -->
-          Traveling with friends
-        </a>
-      </h1>
-
-      <label
-        class="dark-mode-toggle"
-        onchange="
-      event.stopPropagation();
-      toggleDarkMode(event.target, event.target.checked);
-    "
-      >
-        <input type="checkbox" />
-        <span class="toggle-icon sun">☀️</span>
-        <span class="toggle-icon moon">🌙</span>
-      </label>
-    </header>
-    <article>
-      <!-- <section class="france-pic">
-        <img src="france.jpeg" alt="France" />
-      </section> -->
-
-      <!-- custom element!-->
-      <trip-element src="/proto/public/journey.json">
-        <trip-section section-class="itinerary">
-          <svg class="icon" slot="icon">
-            <use href="/icons/itinerary.svg#icon-map" />
-          </svg>
-          <span slot="title" class="section-title"> Itinerary</span>
-          <ul slot="links">
-            <li>
-              <a href="transportation.html"
-                >Planes, Trains and Automobiles &rarr;</a
-              >
-            </li>
-            <li><a href="restaurants.html">Places to eat &rarr;</a></li>
-            <li><a href="sightseeing.html">Check out the view! &rarr;</a></li>
-            <li><a href="activities.html">Things to do &rarr;</a></li>
-          </ul>
-        </trip-section>
-
-        <trip-section section-class="preparations">
-          <svg class="icon" slot="icon">
-            <use href="/icons/preparations.svg#icon-suitcase" />
-          </svg>
-          <span slot="title" class="section-title"> Preparations</span>
-          <span slot="links">
-            <ul slot="links">
-              <li><a href="packing.html">Packing list &rarr;</a></li>
-              <li><a href="https://www.united.com">Book flights &rarr;</a></li>
-            </ul>
-          </span>
-        </trip-section>
-
-        <trip-section section-class="budget">
-          <svg class="icon" slot="icon">
-            <use href="/icons/budget.svg#icon-money" />
-          </svg>
-          <span slot="title" class="section-title"> Budget</span>
-          <span slot="links">
-            <ul slot="links">
-              <li><a href="budget.html"> Calculator &rarr;</a></li>
-            </ul>
-          </span>
-        </trip-section>
-      </trip-element>
-
-      <section class="traveler-intro">
-        <h2>Meet the travelers</h2>
-
-        <a href="about.html" class="traveler-link">
-          <img
-            src="france.jpeg"
-            alt="Our group traveling"
-            class="traveler-image"
-          />
-        </a>
-      </section>
-    </article>
+    <script type="importmap">
+      {
+        "imports": {
+          "@calpoly/mustang": "/node_modules/@calpoly/mustang/dist/mustang.js"
+        }
+      }
+    </script>
 
     <script type="module">
-      import { define } from "@calpoly/mustang";
+      import { define, Auth } from "@calpoly/mustang";
+      import { HeaderElement } from "./src/header.ts";
       import { tripSectionElement } from "./src/tripSection.ts";
 
       define({
+        "app-header": HeaderElement,
+        "mu-auth": Auth.Provider,
         "trip-section": tripSectionElement,
       });
+
+      HeaderElement.initializeOnce();
 
       // dark mode button
       document.body.addEventListener("dark-mode:toggle", (event) => {
@@ -158,5 +51,134 @@
 
       window.toggleDarkMode = toggleDarkMode;
     </script>
+  </head>
+
+  <body class="page">
+    <mu-auth provides="miniature:auth">
+      <header>
+        <button class="hamburger-menu" aria-label="Menu">
+          <span class="hamburger-icon">☰</span>
+        </button>
+
+        <div class="dropdown-menu">
+          <div class="ticket">
+            <div class="ticket-header">✈️ Quick Links</div>
+            <a href="transportation.html" class="ticket-item">
+              <span class="ticket-icon">🚗</span>
+              <span>Transportation</span>
+            </a>
+            <a href="restaurants.html" class="ticket-item">
+              <span class="ticket-icon">🍽️</span>
+              <span>Restaurants</span>
+            </a>
+            <a href="sightseeing.html" class="ticket-item">
+              <span class="ticket-icon">🗼</span>
+              <span>Sightseeing</span>
+            </a>
+            <a href="activities.html" class="ticket-item">
+              <span class="ticket-icon">🎭</span>
+              <span>Activities</span>
+            </a>
+            <a href="packing.html" class="ticket-item">
+              <span class="ticket-icon">🧳</span>
+              <span>Packing List</span>
+            </a>
+            <a href="budget.html" class="ticket-item">
+              <span class="ticket-icon">💰</span>
+              <span>Budget</span>
+            </a>
+          </div>
+        </div>
+
+        <h1>
+          <a href="index.html">
+            <!-- <svg class="icon">
+        <use href="/icons/plane.svg#icon-plane" />
+      </svg> -->
+            Traveling with friends
+          </a>
+        </h1>
+
+        <div class="auth-section">
+          <app-header></app-header>
+        </div>
+
+        <label
+          class="dark-mode-toggle"
+          onchange="
+      event.stopPropagation();
+      toggleDarkMode(event.target, event.target.checked);
+    "
+        >
+          <input type="checkbox" />
+          <span class="toggle-icon sun">☀️</span>
+          <span class="toggle-icon moon">🌙</span>
+        </label>
+      </header>
+      <article>
+        <!-- <section class="france-pic">
+        <img src="france.jpeg" alt="France" />
+      </section> -->
+
+        <!-- custom element!-->
+        <trip-element src="/proto/public/journey.json">
+          <trip-section section-class="itinerary">
+            <svg class="icon" slot="icon">
+              <use href="/icons/itinerary.svg#icon-map" />
+            </svg>
+            <span slot="title" class="section-title"> Itinerary</span>
+            <ul slot="links">
+              <li>
+                <a href="transportation.html"
+                  >Planes, Trains and Automobiles &rarr;</a
+                >
+              </li>
+              <li><a href="restaurants.html">Places to eat &rarr;</a></li>
+              <li><a href="sightseeing.html">Check out the view! &rarr;</a></li>
+              <li><a href="activities.html">Things to do &rarr;</a></li>
+            </ul>
+          </trip-section>
+
+          <trip-section section-class="preparations">
+            <svg class="icon" slot="icon">
+              <use href="/icons/preparations.svg#icon-suitcase" />
+            </svg>
+            <span slot="title" class="section-title"> Preparations</span>
+            <span slot="links">
+              <ul slot="links">
+                <li><a href="packing.html">Packing list &rarr;</a></li>
+                <li>
+                  <a href="https://www.united.com">Book flights &rarr;</a>
+                </li>
+              </ul>
+            </span>
+          </trip-section>
+
+          <trip-section section-class="budget">
+            <svg class="icon" slot="icon">
+              <use href="/icons/budget.svg#icon-money" />
+            </svg>
+            <span slot="title" class="section-title"> Budget</span>
+            <span slot="links">
+              <ul slot="links">
+                <li><a href="budget.html"> Calculator &rarr;</a></li>
+              </ul>
+            </span>
+          </trip-section>
+        </trip-element>
+
+        <section class="traveler-intro">
+          <h2>Meet the travelers</h2>
+
+          <a href="about.html" class="traveler-link">
+            <img
+              src="france.jpeg"
+              alt="Our group traveling"
+              class="traveler-image"
+            />
+          </a>
+        </section>
+      </article>
+    </mu-auth>
   </body>
 </html>

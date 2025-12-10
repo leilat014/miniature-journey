@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@calpoly/mustang": "^1.0.17",
+    "@calpoly/mustang": "^1.0.18",
     "http-server": "^14.1.1",
     "lit": "^3.3.1"
   },

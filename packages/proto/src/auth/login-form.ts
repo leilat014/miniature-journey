@@ -1,7 +1,7 @@
 import { html, css, LitElement } from "lit";
 import { property, state } from "lit/decorators.js";
 import reset from "../styles/reset.css.js";
-// import headings from "../styles/headings.css.js";
+import headings from "../styles/headings.css.js";
 
 interface LoginFormData {
   username?: string;
@@ -44,7 +44,7 @@ export class LoginFormElement extends LitElement {
 
   static styles = [
     reset.styles,
-    // headings.styles,
+    headings.styles,
     css`
       .error:not(:empty) {
         color: var(--color-error);
@@ -54,21 +54,24 @@ export class LoginFormElement extends LitElement {
     `,
   ];
 
-  handleChange(event: InputEvent) {
-    const target = event.target as HTMLInputElement;
-    const name = target?.name;
-    const value = target?.value;
-    const prevData = this.formData;
+handleChange(event: InputEvent) {
+  const target = event.target as HTMLInputElement;
+  const name = target?.name;
+  const value = target?.value;
 
-    switch (name) {
-      case "username":
-        this.formData = { ...prevData, username: value };
-        break;
-      case "password":
-        this.formData = { ...prevData, password: value };
-        break;
-    }
+  switch (name) {
+    case "username":
+      this.formData = { ...this.formData, username: value };
+      break;
+    case "password":
+      this.formData = { ...this.formData, password: value };
+      break;
   }
+  
+  // Add this to help debug
+  console.log('Form data updated:', this.formData);
+  console.log('Can submit:', this.canSubmit);
+}
 
   handleSubmit(submitEvent: SubmitEvent) {
     submitEvent.preventDefault();

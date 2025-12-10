@@ -1,12 +1,27 @@
 import { css, html, LitElement } from "lit";
 import { property, state } from "lit/decorators.js";
+import { Observer, Auth } from "@calpoly/mustang";
 
 export class tripSectionElement extends LitElement {
+  _authObserver = new Observer<Auth.Model>(this, "miniature:auth");
+  _user?: Auth.User;
+
   @property()
   src?: string;
 
+  @property()
+  userid?: string;
+
   @state()
   sections: Array<Section> = [];
+
+  get authorization() {
+    return (
+      this._user?.authenticated && {
+        Authorization: `Bearer ${(this._user as Auth.AuthenticatedUser).token}`,
+      }
+    );
+  }
 
   render() {
     return html`${this.sections.map(
@@ -25,17 +40,43 @@ export class tripSectionElement extends LitElement {
           </ul>
         </trip-section>
       `
-    )} `;
+    )}`;
   }
 
   connectedCallback() {
     super.connectedCallback();
-    if (this.src) this.hydrate(this.src);
+
+    this._authObserver.observe((auth: Auth.Model) => {
+      this._user = auth.user;
+
+      if (this._user?.authenticated) {
+        if (this.userid) {
+          this.hydrate(`/api/travelers/${this.userid}`);
+        } else if (this.src) {
+          this.hydrate(this.src);
+        }
+      } else if (this.src) {
+        this.hydrate(this.src);
+      }
+    });
   }
 
-  hydrate(src: string) {
-    fetch(src)
-      .then((res) => res.json())
+  hydrate(url: string) {
+    const isApiCall = url.startsWith("/api/");
+
+    const fetchOptions =
+      isApiCall && this.authorization ? { headers: this.authorization } : {};
+
+    fetch(url, fetchOptions)
+      .then((res) => {
+        if (res.status === 401) {
+          throw new Error("Unauthorized - please log in");
+        }
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((json: object) => {
         if (json) {
           const data = json as {
@@ -48,6 +89,7 @@ export class tripSectionElement extends LitElement {
         console.error("Error loading data:", error);
       });
   }
+
   static styles = css`
     :host {
       display: grid;

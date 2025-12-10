@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <script type="module">
-    import { define, Auth } from "@calpoly/mustang";
-    import { LoginFormElement } from "/src/auth/login-form";
+  <head>
+    <meta charset="utf-8" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@calpoly/mustang": "/node_modules/.vite/deps/@calpoly_mustang.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import { define, Auth } from "@calpoly/mustang";
+      import { LoginFormElement } from "/src/auth/login-form.js";
 
-    define({
-      "mu-auth": Auth.Provider,
-      "login-form": LoginFormElement
-    });
-  </script>
-</head>
-<body class="page">
-  <mu-auth>
-    <h2>User Login</h2>
+      define({
+        "mu-auth": Auth.Provider,
+        "login-form": LoginFormElement,
+      });
+    </script>
+  </head>
+  <body class="page">
+    <mu-auth>
+      <h2>User Login</h2>
       <main class="card">
         <login-form api="/auth/login">
           <label>
@@ -27,9 +34,9 @@
           </label>
         </login-form>
       </main>
-      <p
-        >Or did you want to
-            <a href="newuser.html">Sign up as a new user</a>?
+      <p>
+        Or did you want to
+        <a href="newuser.html">Sign up as a new user</a>?
       </p>
     </mu-auth>
   </body>

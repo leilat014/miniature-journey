@@ -14,6 +14,12 @@ const staticDir = process.env.STATIC || "public";
 app.use(express.static(staticDir));
 app.use(express.json());
 
+// added:
+app.use(
+  "/node_modules",
+  express.static(path.resolve(__dirname, "../../proto/node_modules"))
+);
+
 app.use("/api/travelers", authenticateUser, travelers);
 
 app.use("/auth", auth);
