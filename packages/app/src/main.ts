@@ -2,6 +2,11 @@ import { LandingView } from "./views/landing-view.ts";
 import { Auth, define, History, Switch } from "@calpoly/mustang";
 import { html } from "lit";
 import { HeaderElement } from "./components/header.ts";
+import { TransportationViewElement } from "./views/transportation-view";
+import { RestaurantViewElement } from "./views/restaurants-view";
+import { SightseeingViewElement } from "./views/sightseeing-view";
+import { PackingViewElement } from "./views/packing-view";
+import { BudgetViewElement } from "./views/budget-view";
 
 const routes = [
   {
@@ -51,6 +56,11 @@ define({
     }
   },
   "app-header": HeaderElement,
+  "transportation-view": TransportationViewElement,
+  "restaurants-view": RestaurantViewElement,
+  "sightseeing-view": SightseeingViewElement,
+  "packing-view": PackingViewElement,
+  "budget-view": BudgetViewElement,
 });
 
 // Dark mode toggle functionality
