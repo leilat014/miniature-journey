@@ -1,13 +1,18 @@
-import { LandingView } from "./views/landing-view.ts";
-import { Auth, define, History, Switch } from "@calpoly/mustang";
+import { Auth, define, History, Switch, Store } from "@calpoly/mustang";
 import { html } from "lit";
+import type { Msg } from "./messages";
+import { Model, init } from "./model";
+import update from "./update";
+
+import { LandingView } from "./views/landing-view.ts";
 import { HeaderElement } from "./components/header.ts";
 import { TransportationViewElement } from "./views/transportation-view";
-import { RestaurantViewElement } from "./views/restaurants-view";
+import { RestaurantsViewElement } from "./views/restaurants-view";
 import { SightseeingViewElement } from "./views/sightseeing-view";
 import { PackingViewElement } from "./views/packing-view";
 import { BudgetViewElement } from "./views/budget-view";
 import { TravelerViewElement } from "./views/traveler-view";
+import { LoginPage } from "./auth/login-page";
 
 const routes = [
   {
@@ -37,6 +42,10 @@ const routes = [
     `,
   },
   {
+    path: "/login",
+    view: () => html`<login-page></login-page>`,
+  },
+  {
     path: "/app",
     view: () => html` <landing-view></landing-view> `,
   },
@@ -48,9 +57,16 @@ const routes = [
 
 // Define all custom elements
 define({
+  "login-page": LoginPage,
   "landing-view": LandingView,
   "mu-auth": Auth.Provider,
   "mu-history": History.Provider,
+
+  "mu-store": class MiniatureStore extends Store.Provider<Model, Msg> {
+    constructor() {
+      super(update, init, "miniature:auth");
+    }
+  },
   "mu-switch": class AppSwitch extends Switch.Element {
     constructor() {
       super(routes, "miniature:history", "miniature:auth");
@@ -58,11 +74,11 @@ define({
   },
   "app-header": HeaderElement,
   "transportation-view": TransportationViewElement,
-  "restaurants-view": RestaurantViewElement,
+  "restaurants-view": RestaurantsViewElement,
   "sightseeing-view": SightseeingViewElement,
   "packing-view": PackingViewElement,
   "budget-view": BudgetViewElement,
-  "traveler-view": TravelerViewElement
+  "traveler-view": TravelerViewElement,
 });
 
 // Dark mode toggle functionality

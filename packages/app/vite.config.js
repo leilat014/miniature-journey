@@ -10,13 +10,13 @@ export default defineConfig({
       "/images": "http://localhost:3000"
     }
   },
-  build: {
-    outDir: "dist",
-    rollupOptions: {
-      input: {
-        main: resolve(process.cwd(), "index.html"),
-        login: resolve(process.cwd(), "login.html") 
-      }
-    }
-  }
+//   build: {
+//     outDir: "dist",
+//     rollupOptions: {
+//       input: {
+//         main: resolve(process.cwd(), "index.html"),
+//         login: resolve(process.cwd(), "login.html") 
+//       }
+//     }
+//   }
 });

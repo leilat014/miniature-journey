@@ -1,200 +1,93 @@
-import { css, html, LitElement } from "lit";
+// packages/app/src/views/traveler-view.ts
+import { define, View } from "@calpoly/mustang";
+import { css, html } from "lit";
 import { property, state } from "lit/decorators.js";
-import { Observer, Auth } from "@calpoly/mustang";
+import { Traveler } from "server/models";
+import { Msg } from "../messages";
+import { Model } from "../model";
 
-interface Traveler {
-  userid: string;
-  name?: string;
-  email?: string;
-  // Add other fields from your Traveler model
-}
-
-export class TravelerViewElement extends LitElement {
-  _authObserver = new Observer<Auth.Model>(this, "miniature:auth");
-  _user?: Auth.User;
-
-  @property({ attribute: "user-id" })
+export class TravelerViewElement extends View<Model, Msg> {
+  @property({ attribute: "userid" })
   userid?: string;
 
   @state()
-  traveler?: Traveler;
-
-  @state()
-  loading = false;
-
-  @state()
-  error?: string;
-
-  get src() {
-    return `/api/travelers/${this.userid}`;
+  get profile(): Traveler | undefined {
+    return this.model.profile;
   }
 
-  get authorization(): HeadersInit | undefined {
-    return this._user?.authenticated
-      ? {
-          Authorization: `Bearer ${
-            (this._user as Auth.AuthenticatedUser).token
-          }`,
-        }
-      : undefined;
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-
-    this._authObserver.observe((auth: Auth.Model) => {
-      this._user = auth.user;
-
-      if (this._user?.authenticated && this.userid) {
-        this.loadTravelerData();
-      }
-    });
-  }
-
-  loadTravelerData() {
-    this.loading = true;
-    this.error = undefined;
-
-    fetch(this.src, {
-      headers: this.authorization,
-    })
-      .then((res) => {
-        if (res.status === 200) {
-          return res.json();
-        } else if (res.status === 401) {
-          throw new Error("Unauthorized - please log in");
-        } else if (res.status === 404) {
-          throw new Error("Traveler not found");
-        }
-        throw new Error("Failed to fetch traveler data");
-      })
-      .then((data: Traveler) => {
-        this.traveler = data;
-        this.loading = false;
-      })
-      .catch((err) => {
-        console.error("Error loading traveler data:", err);
-        this.error = err.message;
-        this.loading = false;
-      });
-  }
-
-  render() {
-    if (this.loading) {
-      return html`<div class="loading">Loading traveler profile...</div>`;
-    }
-
-    if (this.error) {
-      return html`<div class="error">Error: ${this.error}</div>`;
-    }
-
-    if (!this.traveler) {
-      return html`<div class="empty">
-        Please log in to view traveler profiles.
-      </div>`;
-    }
-
-    return html`
-      <article class="traveler-profile">
-        <h1>Traveler Profile: ${this.traveler.name || this.traveler.userid}</h1>
-
-        <section class="profile-details">
-          <dl>
-            <dt>User ID:</dt>
-            <dd>${this.traveler.userid}</dd>
-
-            ${this.traveler.name
-              ? html`
-                  <dt>Name:</dt>
-                  <dd>${this.traveler.name}</dd>
-                `
-              : ""}
-            ${this.traveler.email
-              ? html`
-                  <dt>Email:</dt>
-                  <dd>${this.traveler.email}</dd>
-                `
-              : ""}
-          </dl>
-        </section>
-
-        <section class="profile-actions">
-          <a href="/app" class="back-link">← Back to Home</a>
-        </section>
-      </article>
-    `;
+  constructor() {
+    super("miniature:store");
   }
 
   static styles = css`
-    :host {
-      display: block;
-      padding: 2rem;
-    }
+  :host {
+    display: block;
+    padding: 1rem;
+    font-family: "Fjalla One", sans-serif;
+  }
 
-    .traveler-profile {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+  h2, h3 {
+    font-family: "Fjalla One", sans-serif;
+    margin: 0.5rem 0 1rem;
+    letter-spacing: 0.5px;
+  }
 
-    h1 {
-      font-family: "Fjalla One", sans-serif;
-      color: var(--color-main, #333);
-      margin-bottom: 2rem;
-    }
+  p, li, label {
+    font-family: "Fjalla One", sans-serif;
+  }
 
-    .profile-details {
-      background: var(--color-background-secondary, #f5f5f5);
-      padding: 2rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-    }
+  ul {
+    padding-left: 1.2rem;
+  }
 
-    dl {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 1rem;
-    }
+  a {
+    color: #0077cc;
+    text-decoration: none;
+    font-family: "Fjalla One", sans-serif;
+  }
 
-    dt {
-      font-weight: bold;
-      color: var(--color-text-secondary, #666);
-    }
+  a:hover {
+    text-decoration: underline;
+  }
 
-    dd {
-      margin: 0;
-    }
-
-    .loading,
-    .error,
-    .empty {
-      padding: 2rem;
-      text-align: center;
-      border-radius: 8px;
-    }
-
-    .error {
-      background: #ffebee;
-      color: #c62828;
-      border: 1px solid #ef5350;
-    }
-
-    .empty {
-      background: #fff3e0;
-      color: #e65100;
-      border: 1px solid #fb8c00;
-    }
-
-    .back-link {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: var(--color-main, #333);
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    .back-link:hover {
-      opacity: 0.9;
-    }
-  `;
+  /* Card-like containers (optional, but nice) */
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin: 1rem 0;
 }
+`;
+
+  attributeChangedCallback(name: string, oldVal: string | null, newVal: string | null) {
+    super.attributeChangedCallback(name, oldVal, newVal);
+
+    if (name === "userid" && newVal && newVal !== oldVal) {
+      this.dispatchMessage(["profile/request", { userid: newVal }]);
+    }
+  }
+
+  render() {
+    const p = this.profile;
+
+    if (!p) {
+      return html`
+        <div class="card">
+          <h2>Loading traveler…</h2>
+        </div>
+      `;
+    }
+
+    return html`
+      <div class="card">
+        <h2>${p.name}</h2>
+        <p><strong>Home:</strong> ${p.home}</p>
+        <p><strong>Planned Trips:</strong> ${p.plannedTrips}</p>
+        ${p.bio ? html`<p><strong>Bio:</strong> ${p.bio}</p>` : ""}
+      </div>
+    `;
+  }
+}
+
+define({ "traveler-view": TravelerViewElement });

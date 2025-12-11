@@ -34,6 +34,7 @@ export class HeaderElement extends LitElement {
           <a href="/app/transportation">Transportation</a>
           <a href="/app/restaurants">Restaurants</a>
           <a href="/app/sightseeing">Sightseeing</a>
+          <a href="/app/activities">Activities</a>
           <a href="/app/packing">Packing</a>
           <a href="/app/budget">Budget</a>
           ${this.loggedIn
@@ -62,7 +63,7 @@ export class HeaderElement extends LitElement {
 
   renderSignInButton() {
     return html`
-      <a href="/login.html">Sign In</a>
+      <a href="/login">Sign In</a>
     `;
   }
 

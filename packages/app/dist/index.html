@@ -3,29 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <title>Miniature Journey</title>
-    
+
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
-    
-    <script type="module" crossorigin src="/assets/main-Fcordlcj.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/state-VT-r88xb.js">
+
+    <script type="module" crossorigin src="/assets/index-BOKRNFFP.js"></script>
   </head>
 
   <body>
     <mu-history provides="miniature:history">
       <mu-auth provides="miniature:auth" redirect="/login.html">
-        <article class="page">
-          <app-header></app-header>
-          <mu-switch></mu-switch>
-        </article>
+        <mu-store provides="miniature:model">
+          <article class="page">
+            <app-header></app-header>
+            <mu-switch></mu-switch>
+          </article>
+        </mu-store>
       </mu-auth>
     </mu-history>
   </body>

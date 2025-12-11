@@ -1,49 +1,83 @@
-import { LitElement, html, css } from "lit";
+import { html, css } from "lit";
+import { View } from "@calpoly/mustang";
+import { Model } from "../model";
+import { Msg } from "../messages";
 
-export class BudgetViewElement extends LitElement {
+export class BudgetViewElement extends View<Model, Msg> {
+  constructor() {
+    super("miniature:auth");
+    this.euros = 0;
+    this.rate = 1.08; // example rate
+  }
+
+  euros: number;
+  rate: number;
+
+  setEuroValue(e: Event) {
+    const input = e.target as HTMLInputElement;
+    this.euros = Number(input.value || 0);
+    this.requestUpdate();
+  }
+
   render() {
+    const dollars = (this.euros * this.rate).toFixed(2);
+
     return html`
-      <article>
-        <h1>Budget</h1>
-        <p>How to convert euros to dollars information will go here.</p>
-        <nav>
-          <a href="/app">← Back to Home</a>
-          <a href="/app/transportation">Next: Transportation →</a>
-        </nav>
-      </article>
+      <h2>Euro → Dollar Converter</h2>
+
+      <label>
+        Euros:
+        <input type="number" @input=${this.setEuroValue} placeholder="0" />
+      </label>
+
+      <p><strong>Dollars:</strong> $${dollars}</p>
+      <p>Rate: €1 = $${this.rate}</p>
     `;
   }
 
   static styles = css`
-    article {
-      padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    h1 {
+    :host {
+      display: block;
+      padding: 1rem;
       font-family: "Fjalla One", sans-serif;
-      color: var(--color-main, #333);
-      margin-bottom: 1rem;
     }
 
-    nav {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      justify-content: space-between;
+    h2,
+    h3 {
+      font-family: "Fjalla One", sans-serif;
+      margin: 0.5rem 0 1rem;
+      letter-spacing: 0.5px;
     }
 
-    nav a {
-      padding: 0.75rem 1.5rem;
-      background: var(--color-main, #333);
-      color: white;
+    p,
+    li,
+    label {
+      font-family: "Fjalla One", sans-serif;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    a {
+      color: #0077cc;
       text-decoration: none;
-      border-radius: 4px;
+      font-family: "Fjalla One", sans-serif;
     }
 
-    nav a:hover {
-      opacity: 0.9;
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Card-like containers (optional, but nice) */
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      margin: 1rem 0;
     }
   `;
 }
+
+customElements.define("budget-view", BudgetViewElement);

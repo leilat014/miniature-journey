@@ -6,6 +6,15 @@
   "author": "",
   "type": "commonjs",
   "main": "dist/index.js",
+
+  "types": "src/models/index.ts",
+
+  "exports": {
+    "./models": {
+      "import": "./src/models/index.ts"
+    }
+  },
+
   "scripts": {
     "dev": "nodemon",
     "build": "npx etsc",
@@ -36,3 +45,4 @@
     "mongoose": "^8.19.3"
   }
 }
+
