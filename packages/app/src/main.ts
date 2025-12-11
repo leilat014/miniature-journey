@@ -13,6 +13,7 @@ import { PackingViewElement } from "./views/packing-view";
 import { BudgetViewElement } from "./views/budget-view";
 import { TravelerViewElement } from "./views/traveler-view";
 import { LoginPage } from "./auth/login-page";
+import { TravelerEditElement } from "./views/profile-edit";
 
 const routes = [
   {
@@ -36,6 +37,12 @@ const routes = [
     view: () => html` <budget-view></budget-view> `,
   },
   {
+    path: "/app/traveler/:userid/edit",
+    view: (params: Switch.Params) => html`
+      <traveler-edit userid=${params.userid}></traveler-edit>
+    `,
+  },
+  {
     path: "/app/traveler/:userid",
     view: (params: Switch.Params) => html`
       <traveler-view userid=${params.userid}></traveler-view>
@@ -57,6 +64,7 @@ const routes = [
 
 // Define all custom elements
 define({
+  "traveler-edit": TravelerEditElement,
   "login-page": LoginPage,
   "landing-view": LandingView,
   "mu-auth": Auth.Provider,
